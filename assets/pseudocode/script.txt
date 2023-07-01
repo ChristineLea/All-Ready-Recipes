@@ -1,0 +1,40 @@
+Project Overview: assists the user in choosing dinner recipes based on their appetite/hunger-level and the availability of ingredients in their fridge.
+
+1. When user open the App:
+   - Display the homepage with dinner selection options.
+
+2. User selects dinner based on appetite and hunger level:
+   - Present options for meat-centric dinner, vegetarian lighter dinner.
+   - User make a selection.
+   -safe selection to localStorage.
+
+3. Depending on what user has selected prevously:
+   - Present a list of Papular ingredient to user as checkboxes:
+   - ask the users to check the checkboxes if they want include that in recipes;
+   -save the check boxes to  selected-variable or localStorage.
+  
+
+4. after the checkboxes are saved:
+   - Display a message to user if they want to add more ingredient.
+   - provide an input-text and an add button.
+   -convert to lowerCase if uppCase is used.
+   - values are added to Selected-variable or localStorage by click add or pressing Enter key.
+
+5. retrieve recipes componends from a free recipes server-side APIs by using ajax or Fetch:
+   - save retrieved recipes componends to variables.
+   - retrieve relevent image URLs
+   - compare retrieved data to user inputs.
+   -provid recipes options based on simillarity found.
+
+6. If the selected ingredients are not enough for the recipes:
+   - Prompt the user with a modal message indicating that additional ingredients are required.
+   - Provide suggestions for additional ingredients to complete the recipes.
+
+7.append the result to the HTML using the DOM.
+
+8. Use HTML, CSS, JavaScript,localStorage, jquery and server-side APIs to implement the app:
+   
+
+Note: I was assigned to do this pseudocode today at the Zoom meeting.
+I believe this is the bare minimum to have a dynamic app. Since this assignment is a major assignment with 20% of the overall mark, it looks much harder compared to the previous one I was looking at. However, I still believe it is doable with good teamwork and some help.
+
