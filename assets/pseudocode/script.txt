@@ -3,11 +3,15 @@ Project Overview: assists the user in choosing dinner recipes based on their app
 1. When user open the App:
    - Display the homepage with dinner selection options.
 
-2. User selects dinner based on appetite and hunger level:
+2. User selects dinner based on appetite and hunger level (OPTIONAL): 
    - Present options for meat-centric dinner, vegetarian lighter dinner.
    - User make a selection.
-   -safe selection to localStorage.
-
+   - safe selection to localStorage.
+   - Problem with section; initially I thought to define any recipes that include meat as a "big or substantial dinner" and we could filter from APIs by including meat in it. However I was looking at the recipes and I found the following problems.
+      - how we define or differentiate orthe "substantial dinner" from "light Dinner" in dynamic way?
+      - how filter from the APIs. for example a meat pi 
+      - if we dont find a solution to this. we can delete this section the projects.
+      
 3. Depending on what user has selected prevously:
    - Present a list of Papular ingredient to user as checkboxes:
    - ask the users to check the checkboxes if they want include that in recipes;
@@ -17,22 +21,26 @@ Project Overview: assists the user in choosing dinner recipes based on their app
 4. after the checkboxes are saved:
    - Display a message to user if they want to add more ingredient.
    - provide an input-text and an add button.
-   -convert to lowerCase if uppCase is used.
+   - convert to lowerCase if uppCase is used.
    - values are added to Selected-variable or localStorage by click add or pressing Enter key.
 
 5. retrieve recipes componends from a free recipes server-side APIs by using ajax or Fetch:
-   - save retrieved recipes componends to variables.
-   - retrieve relevent image URLs
-   - compare retrieved data to user inputs.
-   -provid recipes options based on simillarity found.
+   - filter recipes by main ingredients using the user preferences input.
+   - retrieve recipes inluding the relevent component and IMG URLs after matched.
+   -provid recipes options to the users based on simillarity found.
 
-6. If the selected ingredients are not enough for the recipes:
+6. If no recipes matched to the user preference:
    - Prompt the user with a modal message indicating that additional ingredients are required.
    - Provide suggestions for additional ingredients to complete the recipes.
 
 7.append the result to the HTML using the DOM.
 
 8. Use HTML, CSS, JavaScript,localStorage, jquery and server-side APIs to implement the app:
+
+9. List of Possible 3rd pary APIs that could be used;
+   - TheMealDB;
+      - Free Version: allow only one single ingredient to be filter by main ingredients.
+      - filter by multi-ingredient is only available to Paypal supporters.
    
 
 Note: I was assigned to do this pseudocode today at the Zoom meeting.
