@@ -1,0 +1,91 @@
+As a user I want to be able to input information about the type of cusine, calories and cooking time I want from a recipe so that I am given a selection of customised recipes that fit this criteria to help me plan my dinner meals.
+
+additional features to discuss:
+
+1. create a shopping list
+2. dietary and intolerances
+3. nutritional information
+4. protion sizing adjustments
+5. exclude ingrediants - have as userinput text with autocomplete spelling?
+6. time to prepare the meal - let the user select the maximum cooking time for the recipe
+7. search by ingrediants
+
+built in featuers:
+
+1. conversion calculator between metric systems (to use for cup to grams etc)
+
+design:
+webpage
+![Alt text](image.png)
+user recipe results/saved recipes:
+![Alt text](image-1.png)
+
+recipe APIs:
+
+1. Spoonacular (features: menu items, products, recipes) - free
+2. https://calorieninjas.com/api
+
+user input:
+What type of food did you want to cook? - drop down menu: select from different cusines
+Do you have any dietary intolerances or requirements? drop down menu vs text type (gluten, vegetarian, dairy etc)
+
+---
+
+calorie count restricted recipes: option of user to select maximum number of calories for recipes
+
+css:
+
+- Bulma
+
+Tile class from Bulma to display list of questions and submit button
+
+<div class="title">
+//select with dropdown (vs?multiple select option): 
+<select>
+<option>What type of food do you want to cook?</option>"
+<option>List options here</option>
+<select>
+//use radio to select dietary/intolerances:
+<label class = "radio">
+<input type= "radio" name="answer">
+gluten intolerant
+<label>
+complete for dairy, vegetarian only, vegan, etc
+
+//Do you have a preference for the number of calories in the recipe(s)?
+//Select from drop down Bulma class vs use dropdown button on Bulma
+<select>
+
+<option>Do you have a preference for the number of calories in the recipe(s)</option>
+<option>0-300</option>
+<option>300-500</option>
+<option>no preference</option>
+
+//submit button:
+
+//Information section on webpage
+
+//use Bulma Message to display the information content on the webpage vs a tile?
+
+<article class = "message">
+<div class = "message-header">
+// this will be the message header - may be unnecessary 
+<p>Welcome to Dinner Delights<p>
+//information about how to use the application 
+<div class="message body">
+Fill out the input form to enter your preferences for recipes. You can select from the type of food you like to cook, the number of calories and even dietary preferences! 
+</div>
+</article>
+
+//nav bar (or we could utilise Bulma Tabs - have tabs for: saved recipes, search for specific recipes (without using the input questions), saved meal plans? )
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+  //add logo/image for the dinner delights brand
+    <a class="navbar-item" href="#">
+      <img src="#">
+    </a>
+</div> -->
+
+//add in the saved recipes button
+//add in previous meal plans - use nav-bar menu class adn add each in as a navbar item
