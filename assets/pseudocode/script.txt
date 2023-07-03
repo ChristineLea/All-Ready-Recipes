@@ -16,7 +16,7 @@ Project Overview: assists the user in choosing dinner recipes based on their app
    - ask the users to check the checkboxes if they want include that in recipes;
    -save the check boxes to  selected-variable or localStorage.
   
-
+adfd
 4. after the checkboxes are saved:
    - Display a message to user if they want to add more ingredient.
    - provide an input-text and an add button.
