@@ -24,7 +24,7 @@ adfd
    - values are added to Selected-variable or localStorage by click add or pressing Enter key.
 
 5. GET recipes componends from the API using "findByIngredients' endpoint :
-   - filter recipes by main ingredients using the user's preferences input.
+   - filter recipes by main ingredients using the user's preferences input.adsfad
    - use 'ranking' Parameter to set maximum used ingredients(1) and minimize missing ingredients (2) to zero. 
    -use ignorePantry parameter to ignore typical pantry items such as water, salt, paper, etc.
    -define the number of recipes after filteration, by default it is 10.
