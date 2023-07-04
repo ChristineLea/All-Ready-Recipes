@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+     <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -13,7 +18,7 @@
     <!-- SAVED RECIPES/SLIDER using jQuery-->
     <!-- add inline styles while I am testing -->
     <!-- ADD CSS width/height & a ::before class to create the effect of a tab? -->
-    <div id="slider">
+    <div id="slider" width="700px" height="700px" background-color="black">
 
     </div>
 
@@ -35,7 +40,14 @@
 
     <!-- FOOTER -->
 
-<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
 </body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).click(function () {
+        $("#slider").toggle("slide");
+    });
+</script>
 </html>
