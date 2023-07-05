@@ -1,30 +1,54 @@
-    
-    
-    
-    // Step1: References to HTML Elements 
-    const inputEl = document.getElementById('ingredients');
-    const btnEl = document.getElementById('searchBtn');
+// Step 1: HTML References
+const inputEl = document.getElementById('ingredients');
+const btnEl = document.getElementById('searchBtn');
+const titleEl = document.getElementById('title');
+const imgEl = document.getElementById('image');
+const containerEl = document.getElementById('container');
 
-     //step 3 add API Key
-     const apiKey = "8734635d4cfc4d00bb8e0e29263ce8f2"
+// Step 3: Add API Key
+const apiKey = "8734635d4cfc4d00bb8e0e29263ce8f2";
 
-       //step 4 function to fetch data from API
-    function fetchApi(ingredients) {
-      const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=1`;
-     
-        //Get Request using Fetch
-      fetch(url)
-      //we have two methos here. the first methond, it retrieve the respone and convert all the data in json format.
-        .then(response => response.json())
-        .then(function(data) {
-          console.log(data);
-        });
-    
-    };
+// Step 4: Function to fetch data from API
+function fetchApi(ingredients) {
+  //refer to API documentation and test other endpoints or parameters
+  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=3`;
 
-     //step 2 add and eventlistener 
-     btnEl.addEventListener('click', function() {
-      const userInput = inputEl.value;
-      
-      fetchApi(userInput);
+  // GET request using Fetch
+  fetch(url)
+  //the first then get response from the server and changed it into json format
+    .then(response => response.json())
+    .then(function(data) {
+      displayRecipe(data);
     });
+}
+
+// Step 5: Display Recipe to HTML
+function displayRecipe(data) {
+  //
+  imgEl.innerHTML = '';
+  titleEl.innerHTML = '';
+  //itterate over each element in the data array
+  if (data.length > 0) {
+    data.forEach(recipe => {
+      const recipeImg = recipe.image;
+      const recipeTitle = recipe.title;
+
+      // Create image element
+      const imageElement = document.createElement('img');
+      imageElement.src = recipeImg;
+      imageElement.alt = recipeTitle;
+      imgEl.appendChild(imageElement);
+
+      // Create title element
+      const titleElement = document.createElement('h2');
+      titleElement.textContent = recipeTitle;
+      titleEl.appendChild(titleElement);
+    });
+  }
+}
+
+// Step 2: Add an event listener to the search button
+btnEl.addEventListener('click', function() {
+  const userInput = inputEl.value;
+  fetchApi(userInput);
+});
