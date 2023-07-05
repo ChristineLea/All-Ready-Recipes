@@ -40,3 +40,16 @@ class RecipeObject {
 		// we then continue this process to add in the remaining property values
 	}
 }
+
+// From the "blueprint" above we can create New objects
+let recipeId = new RecipeObject( // Sample object which will be created when recipe is displayed in the RECIPE suggestion section
+	id,
+	title,
+	ingredients,
+	intolerances,
+	maxCookTime,
+	img,
+	bool
+);
+// This can then be used to display on CARD & ACCORDIAN as it will inherit the methods
+recipeId.displayCard();
