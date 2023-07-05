@@ -3,46 +3,52 @@ Project Overview: assists the user in choosing dinner recipes based on their app
 1. When user open the App:
    - Display the homepage with dinner selection options.
 
-2. User selects dinner based on appetite and hunger level (OPTIONAL): 
-   - Present options for meat-centric dinner, vegetarian lighter dinner.
+2. User selects dinner recipes based on their appetite;
+   - Present options for protein-rich dinner, vegetarian dinner or any.
    - User make a selection.
-   - safe selection to localStorage.
-   - Problem with section; initially I thought to define any recipes that include meat as a "substantial dinner or big dinner" and we could filter it from APIs by including meat in main ingriedient. However I was looking at the recipes provided by one API and I found the following problems.
-      - how we define or differentiate orthe "substantial dinner" from "light Dinner" in dynamic way?
-      - how to define a substantial dinner. for example a Meat-Pie, contain meat in its main ingriedient. it can not be defined a 'substantial meal'.
-      - if we dont find a solution to this. we can delete this section the projects.
+      - use minProtein API parameter define the minimum amount of protein in grams (for exmaple 30+ grams per serve).
+      - use diet API parameter define vegetarian recipes.
+         - save the above selections.
+   
       
 3. Depending on what user has selected prevously:
    - Present a list of Papular ingredient to user as checkboxes:
    - ask the users to check the checkboxes if they want include that in recipes;
    -save the check boxes to  selected-variable or localStorage.
   
-
+adfd
 4. after the checkboxes are saved:
    - Display a message to user if they want to add more ingredient.
    - provide an input-text and an add button.
    - convert to lowerCase if uppCase is used.
    - values are added to Selected-variable or localStorage by click add or pressing Enter key.
 
-5. retrieve recipes componends from a free recipes server-side APIs by using ajax or Fetch:
-   - filter recipes by main ingredients using the user preferences input.
-   - retrieve recipes inluding the relevent component and IMG URLs.
-   -provid recipes options to the users based on simillarity found.
-
+5. GET recipes componends from the API using "findByIngredients' endpoint :
+   - filter recipes by main ingredients using the user's preferences input.adsfad
+   - use 'ranking' Parameter to set maximum used ingredients(1) and minimize missing ingredients (2) to zero. 
+   -use ignorePantry parameter to ignore typical pantry items such as water, salt, paper, etc.
+   -define the number of recipes after filteration, by default it is 10.
+   - retrieve recipes'content inluding the relevent component and JPG URLs.
+   
 6. If no recipes matched to the user preference:
    - Prompt the user with a modal message indicating that additional ingredients are required.
    - Provide suggestions for additional ingredients to complete the recipes.
+   - OR use ranking parameter to increase missing ingredients(2).
 
 7.append the result to the HTML using the DOM.
 
 8. Use HTML, CSS, JavaScript,localStorage, jquery and server-side APIs to implement the app:
 
-9. List of Possible 3rd pary APIs that could be used;
-   - TheMealDB;
-      - Free Version: allow only one single ingredient to be filter by main ingredients.
-      - filter by multi-ingredient is only available to Paypal supporters.
+9. APIs that to be used in the project;
+   - Spoonacular API;
+      - Free: but with limitation of 150 request/Points per/Day.
+      - filter by multi-ingredient available, just need to put a comma after each ingredient.
+      - Request Method: "GET"
+      - Base URL: "https://api.spoonacular.com/recipes"
+      - endpoints: "findByIngredients".
+      - API Key: "54f091c799b4297951a2alca21cf29f"
+      - overall this a perfect API has nearly 3,000 recipes in the database which open to use.
    
 
-Note: I was assigned to do this pseudocode today at the Zoom meeting.
-I believe this is the bare minimum to have a dynamic app. Since this assignment is a major assignment with 20% of the overall mark, it looks much harder compared to the previous one I was looking at. However, I still believe it is doable with good teamwork and some help.
+Note: I have been assigned to review the two APIs that were provided to me during yesterday's Zoom meeting to see if we can use them in our project. One of the APIs that was suggested by a team member, Spoonacular API, seems to be a perfect fit for our project. I appreciate the team member's suggestion and recommendation of this API.
 
