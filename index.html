@@ -14,26 +14,8 @@
 <body>
     <!-- HEADER -->
 
-    <!-- FAVOURITE Section -->
-    <!-- Uses jQuery UI -->
-    <div class="tab-slider" id="slider">
-        <!-- FAVOURITE : TAB Section -->
-        <!-- FAVOURITE : SLIDER Section -->
-        <div class="tab-content">
-            <h4>My Favourite Recipes</h4>
-            <!-- ADD section for recipes -->
-        </div>
-        <div class="btn">
-            <!-- ADD AN ICON -->
-            <!-- ADD click event in JS & BULMA CSS button styles-->
-            <button id="tabBtn">Favourites</button>
-        </div>
-    </div>
 
-
-    <!-- .section BULMA class will contain the instructions & form -->
-    <!-- LEFT SIDE Instructions -->
-    <!-- .container BULMA class -->
+    <!-- FORM INPUT Instructions -->
     <div class="container">
         <h2>Let us serve you up dinner recipes! It's as simple as 1 2 3</h2>
         <ol>
@@ -46,6 +28,28 @@
     <!-- RIGHT SIDE Form -->
 
     <!-- NUTRITIONAL -->
+
+    <!-- SAVED RECIPE Section -->
+    <div class="section">
+        <!-- section content container -->
+        <div class="container">
+            <!-- ACCORDION layout -->
+            <div id="accordion" class="ui-accordion ui-widget ui-helper-reset" role="tablist">
+    
+                <!-- PER RECIPE  Dynamically add <h3> & <div> in JavaScript -->
+                <h3 class="ui-accordion-header ui-corner-top ui-state-default ui-accordion-icons ui-accordion-header-collapsed ui-corner-all"
+                    role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false"
+                    tabindex="0"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+                    Recipe Title
+                </h3>
+                <div class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content" id="ui-id-2"
+                    aria-labelledby="ui-id-1" role="tabpanel" aria-hidden="true" style="height: 214.358px; display: none;">
+                    <!-- Add content here -->
+                </div>
+    
+            </div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
 
