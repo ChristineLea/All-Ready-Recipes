@@ -1,16 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
    
     <!-- HEADER -->
 
-    <!-- LEFT SIDE Instructions -->
+    <!-- FAVOURITE Section -->
+    <!-- Uses jQuery UI -->
+    <div class="tab-slider" id="slider">
+        <!-- FAVOURITE : TAB Section -->
+        <!-- FAVOURITE : SLIDER Section -->
+        <div class="tab-content">
+            <h4>My Favourite Recipes</h4>
+            <!-- ADD section for recipes -->
+        </div>
+        <div class="btn">
+            <!-- ADD AN ICON -->
+            <!-- ADD click event in JS & BULMA CSS button styles-->
+            <button id="tabBtn">Favourites</button>
+        </div>
+    </div>
 
+
+    <!-- .section BULMA class will contain the instructions & form -->
+    <!-- LEFT SIDE Instructions -->
+    <!-- .container BULMA class -->
+    <div class="container">
+        <h2>Let us serve you up dinner recipes! It's as simple as 1 2 3</h2>
+        <ol>
+            <li>Type in what ingredients you have on hand</li>
+            <li>Add any food intolerances and/or dietary requirements</li>
+            <li>Add a serving size & submit</li>
+        </ol>
+        <h3>We will then do our magic and & deliver you with dinner recipes to cook up a storm!</h3>
+    </div>
     <!-- RIGHT SIDE Form -->
 
     <h1>Search Recipes</h1>
@@ -24,6 +57,14 @@
     <!-- NUTRITIONAL -->
 
     <!-- FOOTER -->
-<script src="./assets/js/script.js" ></script>
+
 </body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).click(function () {
+        $("#slider").toggle("slide");
+    });
+</script>
+
 </html>
