@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- HEADER -->
 
     <!-- LEFT SIDE Instructions -->
 
     <!-- RIGHT SIDE Form -->
+    <!-- function: user input form with submit button-->
+    <!-- enter HTML URL for where data will be sent-->
+    <form action="./assets/html/recipe.html" class="userInputForm">
+      <!-- add H2 for user input form (happy for the title to be changed)-->
+      <h2>Input your recipe preferences</h2>
+      <!-- questions for user input-->
+      <!-- select available ingrediants-->
+      <!--use Bulma input class CSS for text input vs select image(s)?-->
+      <label id="q1">
+        What ingrediants do you have available?
+        <input type="text" name="ingrediants" placeholder="pasta" />
+      </label>
 
+      <!-- select dietary requirements-->
+      <label id="q2"> Select you dietary preferences </label>
+      <!-- use radio button to select intolerances-->
+      <input type="radio" id="gluten" name="intolerances" value="gluten" />
+      <input type="radio" id="dairy" name="intolerances" value="dairy" />
+      <input type="radio" id="egg" name="intolerances" value="egg" />
+      <input type="radio" id="peanut" name="intolerances" value="peanut" />
+
+      <!-- select the type of cuisine-->
+      <label id="q3"> Select the type of cuisine </label>
+      <!-- add submit button - this takes the user to second HTML page with recipe results-->
+      <input type="submit" id="submitPreferences" value="Submit" />
+    </form>
     <!-- NUTRITIONAL -->
 
     <!-- FOOTER -->
-
-
-</body>
+  </body>
 </html>
