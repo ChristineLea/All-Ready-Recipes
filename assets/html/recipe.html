@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes</title>
 </head>
 <body>
-    <!-- HEADER -->
+  <header>
+    <h1>Search Recipes</h1>
+    <input class="ingredients" type="text">
+    <button class="searchBtn">Search</button>
+    <p class="noRecipeMessage"></p>
+  </header>
 
-    <!-- RECIPES -->
+  <section class="recipeContainer">
+    <h2>Recipes Title and Image</h2>
+    <div class="recipeList"></div>
+  </section>
 
-    <!-- FOOTER -->
+  <section class="recipeModal">
+    <h2>Recipe Details</h2>
+    <div class="recipeId"></div>
+    <div class="recipeMissedIngredientCount"></div>
+    <ul class="recipeMissedIngredients"></ul>
+    <ul class="recipeUnusedIngredients"></ul>
+    <div class="recipeUsedIngredientCount"></div>
+    <ul class="recipeUsedIngredients"></ul>
+  </section>
+
+  <footer>
+
+  </footer>
+
+  <script src="../js/script.js"></script>
 </body>
 </html>
