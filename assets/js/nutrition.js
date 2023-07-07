@@ -1,11 +1,16 @@
 // // CALORIE NINJAS API
 const API_KEY = "J4fyAOnwuXGtNt+PjYXPZg==g2QzfMyhXiwtkSjP";
 // test query
-let query = "potato and sausages";
+let query = "I live in melbourne";
 
 // VALIDATION
 // convert kg to pounds
 
+// ON SUBMIT clear alertUser()
+function alertUser() {
+	$("#info").append("<p>No ingredient/s or food item/s were entered. Please try again.</p>");
+	return;
+}
 // GET request
 $.ajax({
 	method: "GET",
@@ -18,7 +23,7 @@ $.ajax({
 		// check if return obj is empty - due to no food/ingredients entered
 		if (result.items.length === 0) {
 			// return a function to output a notifcation to user
-			// alertUser();
+			alertUser();
 			console.log("empty");
 		} else {
 			// Pass ingredient/Food data to function so it can be stored in an object and accessed to display
