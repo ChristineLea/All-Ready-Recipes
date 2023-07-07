@@ -14,20 +14,84 @@
 <body>
 
     <!-- NUTRITIONAL INFORMATION SECTION -->
-<h4>Find Nutritional Information</h4>
-<p>here is some text .....</p>
-<p>Default quantity is 100g / prefix a quantity before the item</p>
-<form action="#">
-    <!-- max # characters is 1500 -->
-    <label for="nutrition">Type in single ingredient items</label>
-    <input type="text" id="nutrition" name="nutrition" placeholder="type in your query here">
-    <button>Submit</button>
-</form>
+    <h4>Find Nutritional Information</h4>
+    <p>here is some text .....</p>
+    <p>Default quantity is 100g enter in increments of 100g / prefix a quantity before the item</p>
+    <form action="#">
+        <!-- max # characters is 1500 -->
+        <label for="nutrition">Type in single ingredient items</label>
+        <input type="text" id="nutrition" name="nutrition" placeholder="type in your query here" maxlength="1500">
+        <button id="submitNutrition">Submit</button>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="2">Nutrition Information</th>
 
-    </body>
+            </tr>
+            <tr>
+                <th colspan="2">Ingredient</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Serving Size</td>
+                <td>add data</td>
+            </tr>
+            <tr>
+                <!-- <th> averge quantity per 100g </th> -->
+            </tr>
+            <tr>
+                <th>Calories</th>
+                <td>add data</td>
+            </tr>
+            <tr>
+                <th>Protein</th>
+                <td>add data</td>
+            </tr>
+            <tr>
+                <th>FAT, Total</th>
+                <td>add data</td>
+            </tr>
+            <tr>
+                <th> - Saturated Fat</th>
+                <td>add dat</td>
+            </tr>
+            <tr>
+                <th>Carbohydrate</th>
+                <td>Add data</td>
+            </tr>
+            <tr>
+                <th> - Sugar</th>
+                <td>add data</td>
+            </tr>
+            <tr>
+                <th>Dietary Fibre</th>
+                <td>add data</td>
+            </tr>
+            <tr>
+                <th>Sodium</th>
+                <td>add data</td>
+            </tr>
+            <tr>
+                <th>Potassium</th>
+                <td>add data</td>
+            </tr>
+            <tr>
+                <th>Cholesterol</th>
+                <td>Add data</td>
+            </tr>
+            <tr>
+                <td colspan="2">information relating to where info sourced</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script src="./assets/js/nutrition.js"></script>
+
 </html>
 
 <!-- GIVEN I want to check nutritional information

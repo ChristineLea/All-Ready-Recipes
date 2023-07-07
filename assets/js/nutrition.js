@@ -15,25 +15,14 @@ $.ajax({
 	success: function (result) {
 		// access returned data
 		const objData = result.items;
-		// iterate over returned objects for each ingredient requested
-		// for all of the items returned, save each value to an object to access and display data
-		for (const item of objData) {
-			let obj = {
-				name: item.name,
-				servingSize: item.serving_size_g,
-				calories: item.calories,
-				protein: item.protein_g,
-				sugar: item.sugar_g,
-				fiber: item.fiber_g,
-				sodium: item.sodium_mg,
-				potassium: item.potassium_mg,
-				cholesterol: item.cholesterol_mg,
-				carbohydrates: item.carbohydrates_total_g,
-				fat: item.fat_total_g,
-				saturatedFat: item.fat_saturated_g,
-			};
-			// pass the object for each of the ingredients to the function to display the data
-			displayData(obj);
+		// check if return obj is empty - due to no food/ingredients entered
+		if (result.items.length === 0) {
+			// return a function to output a notifcation to user
+			// alertUser();
+			console.log("empty");
+		} else {
+			// Pass ingredient/Food data to function so it can be stored in an object and accessed to display
+			sortObjData(objData);
 		}
 	},
 	// if error - log to console
@@ -41,13 +30,33 @@ $.ajax({
 		console.error("Error: ", jqXHR.responseText);
 	},
 });
+
+// function to set obj data
+function sortObjData(objData) {
+	for (const item of objData) {
+		let obj = {
+			name: item.name,
+			servingSize: item.serving_size_g,
+			calories: item.calories,
+			protein: item.protein_g,
+			sugar: item.sugar_g,
+			fiber: item.fiber_g,
+			sodium: item.sodium_mg,
+			potassium: item.potassium_mg,
+			cholesterol: item.cholesterol_mg,
+			carbohydrates: item.carbohydrates_total_g,
+			fat: item.fat_total_g,
+			saturatedFat: item.fat_saturated_g,
+		};
+		displayData(obj);
+	}
+}
 // test to display/output to the user
 function displayData(obj) {
 	const body = $("body");
-	let list = $("<ul>");
-	let ingredient = obj.servingSize;
-	let lI = $("<li>");
-	lI.text(ingredient);
-	list.append(lI);
-	body.append(list);
+	let pEl = $("<p>");
+	pEl.text(obj.name);
+	body.append(pEl);
 }
+
+// INUPT id = nutrition & button id = submitNutrition
