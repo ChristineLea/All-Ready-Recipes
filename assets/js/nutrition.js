@@ -36,7 +36,7 @@ $.ajax({
 	},
 });
 
-// function to set obj data
+// function to sort/format returned data
 function sortObjData(objData) {
 	for (const item of objData) {
 		let obj = {
