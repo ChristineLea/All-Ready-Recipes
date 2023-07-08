@@ -3,13 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fetch Practice</title>
+  <title>Dinner Delights</title>
+  <style>
+    .suggestionsContainer {
+      position: relative;
+    }
+
+    .suggestionsList {
+      position: absolute;
+      z-index: 1;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .suggestionsList li {
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .suggestionsList li:hover {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Search Recipes</h1>
+    <div class="selectedIngredients"></div>
+
     <input class="ingredients" type="text">
+    <ul class="suggestionsList"></ul>
     <button class="searchBtn">Search</button>
+  
     <p class="noRecipeMessage"></p>
   </header>
 

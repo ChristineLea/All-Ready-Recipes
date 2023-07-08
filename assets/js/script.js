@@ -9,7 +9,7 @@ const noRecipeMessage = document.querySelector('.noRecipeMessage');
 const apiKey = "8734635d4cfc4d00bb8e0e29263ce8f2";
 
 // Step 4: Function to fetch data from API
-function fetchApi(ingredients) {
+function fetchRecipe(ingredients) {
   const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=2`;
 
   // GET request using Fetch
@@ -17,7 +17,6 @@ function fetchApi(ingredients) {
     .then(response => response.json())
     .then(function(data) {
       displayRecipe(data);
-      console.log(data);
     });
 }
 
@@ -111,9 +110,77 @@ function displayRecipe(data) {
     noRecipeMessage.textContent = "No recipe found.";
   }
 }
+//selected ingredient chosen by users
+
+
+function fetchIngredientSuggestions(query) {
+  const url = `https://api.spoonacular.com/food/ingredients/autocomplete?query=${query}&number=5&apiKey=${apiKey}`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(function(data){
+      displayIngredientSuggestion(data);
+    });
+};
+//empty array for Unser input selection
+let selectedIngredients = [];
+// Display Auto Completion 
+function displayIngredientSuggestion(data) {
+  const suggestionsList = document.querySelector('.suggestionsList');
+  suggestionsList.innerHTML = "";
+
+  data.forEach(ingredient => {
+    const suggestionItem = document.createElement('li');
+    suggestionItem.textContent = ingredient.name;
+    suggestionItem.addEventListener('click', function() {
+      const selectedIngredient = ingredient.name;
+      inputEl.value = '';
+      selectedIngredients.push(selectedIngredient);
+      //update display of selected ingredients
+      displaySelectedIngredients();
+      suggestionsList.innerHTML = "";
+    });
+    suggestionsList.appendChild(suggestionItem);
+  });
+  
+};
+
+function displaySelectedIngredients(){
+  const selectedIngredientContainer = document.querySelector('.selectedIngredients');
+  selectedIngredientContainer.innerHTML = '';
+
+  selectedIngredients.forEach(ingredient => {
+    const ingredientItem = document.createElement('span');
+    ingredientItem.textContent = ingredient;
+    selectedIngredientContainer.appendChild(ingredientItem);
+    
+  });
+};
+
 
 // Step 2: Add an event listener to the search button
 btnEl.addEventListener('click', function() {
-  const userInput = inputEl.value;
-  fetchApi(userInput);
+  const userInput = selectedIngredients.join(', ');
+  fetchRecipe(userInput);
+
 });
+
+//step 1 autocompletion
+//add eventlistener to Input typing
+inputEl.addEventListener('input', function() {
+  const query = inputEl.value;
+  fetchIngredientSuggestions(query);
+
+
+});
+
+//add eventlistener to input click
+inputEl.addEventListener('click', function() {
+  const query = inputEl.value;
+  //comment the following function call for now
+  fetchIngredientSuggestions(query);
+});
+
+
+
+
