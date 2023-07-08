@@ -49,6 +49,9 @@ function displayRecipe(data) {
       const recipeId = document.createElement('p');
       recipeId.textContent = `ID: ${recipe.id}`;
 
+      const recipeLikes = document.createElement('p');
+      recipeLikes.textContent = `Likes: ${recipe.likes}`;
+
       const recipeMissedIngredientCount = document.createElement('p');
       recipeMissedIngredientCount.textContent = `Missed Ingredient Count: ${recipe.missedIngredientCount}`;
 
@@ -56,6 +59,12 @@ function displayRecipe(data) {
       recipe.missedIngredients.forEach(ingredient => {
         const ingredientItem = document.createElement('li');
         ingredientItem.textContent = ingredient.original;
+
+        const ingredientImage = document.createElement('img');
+        ingredientImage.src = ingredient.image;
+        ingredientImage.alt = ingredient.name;
+        ingredientItem.appendChild(ingredientImage);
+
         recipeMissedIngredients.appendChild(ingredientItem);
       });
 
@@ -63,6 +72,13 @@ function displayRecipe(data) {
       recipe.unusedIngredients.forEach(ingredient => {
         const ingredientItem = document.createElement('li');
         ingredientItem.textContent = ingredient.original;
+
+        const ingredientImage = document.createElement('img');
+        ingredientImage.src = ingredient.image;
+        ingredientImage.alt = ingredient.name;
+        ingredientItem.appendChild(ingredientImage);
+
+
         recipeUnusedIngredients.appendChild(ingredientItem);
       });
 
@@ -73,10 +89,17 @@ function displayRecipe(data) {
       recipe.usedIngredients.forEach(ingredient => {
         const ingredientItem = document.createElement('li');
         ingredientItem.textContent = ingredient.original;
+
+        const ingredientImage = document.createElement('img');
+        ingredientImage.src = ingredient.image;
+        ingredientImage.alt = ingredient.name;
+        ingredientItem.appendChild(ingredientImage);
+
         recipeUsedIngredients.appendChild(ingredientItem);
       });
 
       recipeModal.appendChild(recipeId);
+      recipeModal.appendChild(recipeLikes);
       recipeModal.appendChild(recipeMissedIngredientCount);
       recipeModal.appendChild(recipeMissedIngredients);
       recipeModal.appendChild(recipeUnusedIngredients);
