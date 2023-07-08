@@ -1,11 +1,9 @@
 // // CALORIE NINJAS API
 const API_KEY = "J4fyAOnwuXGtNt+PjYXPZg==g2QzfMyhXiwtkSjP";
-// test query
-let strQuery = "";
-const submitNutrition = $("#submitNutrition");
-// VALIDATION
-// convert kg to pounds
 
+const SUBMIT_NUTRITION_BTN = $("#submitNutrition");
+
+let strQuery = "";
 // ON SUBMIT clear alertUser()
 function alertUser() {
 	$("#info").append(
@@ -21,15 +19,12 @@ function ajaxGetApi() {
 		headers: { "X-Api-Key": API_KEY },
 		contentType: "application/json",
 		success: function (result) {
-			// access returned data
+			// if returned data obj is empty - users input did not contain food &/or ingredients
 			const objData = result.items;
-			// check if return obj is empty - due to no food/ingredients entered
 			if (result.items.length === 0) {
-				// return a function to output a notifcation to user
 				alertUser();
-				console.log("empty");
 			} else {
-				// Pass ingredient/Food data to function so it can be stored in an object and accessed to display
+				// if returned obj contains data, sort & display data
 				sortObjData(objData);
 			}
 		},
@@ -40,38 +35,64 @@ function ajaxGetApi() {
 	});
 }
 
-// function to sort/format returned data
+// sort/format returned data to an object for each ingredient/food item requested by user input
 function sortObjData(objData) {
 	for (const item of objData) {
+		console.log(item);
 		let obj = {
 			name: item.name,
-			servingSize: item.serving_size_g,
+			servingSize: item.serving_size_g + "g",
 			calories: item.calories,
-			protein: item.protein_g,
-			sugar: item.sugar_g,
-			fiber: item.fiber_g,
-			sodium: item.sodium_mg,
-			potassium: item.potassium_mg,
-			cholesterol: item.cholesterol_mg,
-			carbohydrates: item.carbohydrates_total_g,
-			fat: item.fat_total_g,
-			saturatedFat: item.fat_saturated_g,
+			protein: item.protein_g + "g",
+			sugar: item.sugar_g + "g",
+			fiber: item.fiber_g + "g",
+			sodium: item.sodium_mg +"mg",
+			potassium: item.potassium_mg + "mg",
+			cholesterol: item.cholesterol_mg +"mg",
+			carbohydrates: item.carbohydrates_total_g + "g",
+			fat: item.fat_total_g + "g",
+			saturatedFat: item.fat_saturated_g + "g",
 		};
+		console.log(obj);
 		displayData(obj);
 	}
 }
 // test to display/output to the user
 function displayData(obj) {
-	const body = $("body");
-	let pEl = $("<p>");
-	pEl.text(obj.name);
-	body.append(pEl);
+	const $ingredient = $("#ingredient");
+	const $serving = $("#serving");
+	const $calories = $("#calories");
+	const $protein = $("#protein");
+	const $fat = $("#fat");
+	const $satFat = $("#sat-fat");
+	const $carbs = $("#carbs");
+	const $sugar = $("#sugar");
+	const $fibre = $("#fibre");
+	const $sodium = $("#sodium");
+	const $potassium = $("#potassium");
+	const $cholesterol = $("#cholesterol");
+
+
+	$ingredient.append(`<th>${obj.name}</th>`);
+		$serving.append(`<td>${obj.servingSize}</td>`);
+		$calories.append(`<td>${obj.calories}</td>`);
+		$protein.append(`<td>${obj.protein}</td>`);
+		$fat.append(`<td>${obj.fat}</td>`);
+		$satFat.append(`<td>${obj.saturatedFat}</td>`);
+		$carbs.append(`<td>${obj.carbohydrates}</td>`);
+		$sugar.append(`<td>${obj.sugar}</td>`);
+		$fibre.append(`<td>${obj.fiber}</td>`);
+		$sodium.append(`<td>${obj.sodium}</td>`);
+		$potassium.append(`<td>${obj.potassium}</td>`);
+	$cholesterol.append(`<td>${obj.cholesterol}</td>`);
+	
+
 }
 
-submitNutrition.on("click", function (e) {
+SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	e.preventDefault();
 
-	strQuery = submitNutrition.prev().val();
+	strQuery = SUBMIT_NUTRITION_BTN.prev().val();
 
 	ajaxGetApi();
 });
