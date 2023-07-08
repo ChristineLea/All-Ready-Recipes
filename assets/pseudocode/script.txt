@@ -14,8 +14,8 @@ Project Overview: assists the user in choosing dinner recipes based on their app
 3. Depending on what user has selected prevously:
    - Present a list of Papular ingredient to user as checkboxes:
    - ask the users to check the checkboxes if they want include that in recipes;
-   -save the check boxes to  selected-variable or localStorage.
 
+   -save the check boxes to  selected-variable or localStorage.
 4. after the checkboxes are saved:
    - Display a message to user if they want to add more ingredient.
    - provide an input-text and an add button.
