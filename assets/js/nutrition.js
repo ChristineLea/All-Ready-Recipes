@@ -1,14 +1,19 @@
 // // CALORIE NINJAS API
 const API_KEY = "J4fyAOnwuXGtNt+PjYXPZg==g2QzfMyhXiwtkSjP";
-
 const SUBMIT_NUTRITION_BTN = $("#submitNutrition");
-
 let strQuery = "";
+
 // ON SUBMIT clear alertUser()
 function alertUser() {
-	$("#info").append(
-		"<p>No ingredient/s or food item/s were entered. Please try again.</p>"
-	);
+	let $form = $("form");
+	let $alert = $("<p>").text(
+		"No ingredient/s or food item/s were entered. Please try again.");
+	if (bool === true) {
+		$form.append($alert);
+	}
+	if (bool === false) {
+		$form.remove($alert);
+	}
 	return;
 }
 // GET request
@@ -46,14 +51,15 @@ function sortObjData(objData) {
 			protein: item.protein_g + "g",
 			sugar: item.sugar_g + "g",
 			fiber: item.fiber_g + "g",
-			sodium: item.sodium_mg +"mg",
+			sodium: item.sodium_mg + "mg",
 			potassium: item.potassium_mg + "mg",
-			cholesterol: item.cholesterol_mg +"mg",
+			cholesterol: item.cholesterol_mg + "mg",
 			carbohydrates: item.carbohydrates_total_g + "g",
 			fat: item.fat_total_g + "g",
 			saturatedFat: item.fat_saturated_g + "g",
 		};
 		console.log(obj);
+
 		displayData(obj);
 	}
 }
@@ -72,21 +78,18 @@ function displayData(obj) {
 	const $potassium = $("#potassium");
 	const $cholesterol = $("#cholesterol");
 
-
 	$ingredient.append(`<th>${obj.name}</th>`);
-		$serving.append(`<td>${obj.servingSize}</td>`);
-		$calories.append(`<td>${obj.calories}</td>`);
-		$protein.append(`<td>${obj.protein}</td>`);
-		$fat.append(`<td>${obj.fat}</td>`);
-		$satFat.append(`<td>${obj.saturatedFat}</td>`);
-		$carbs.append(`<td>${obj.carbohydrates}</td>`);
-		$sugar.append(`<td>${obj.sugar}</td>`);
-		$fibre.append(`<td>${obj.fiber}</td>`);
-		$sodium.append(`<td>${obj.sodium}</td>`);
-		$potassium.append(`<td>${obj.potassium}</td>`);
+	$serving.append(`<td>${obj.servingSize}</td>`);
+	$calories.append(`<td>${obj.calories}</td>`);
+	$protein.append(`<td>${obj.protein}</td>`);
+	$fat.append(`<td>${obj.fat}</td>`);
+	$satFat.append(`<td>${obj.saturatedFat}</td>`);
+	$carbs.append(`<td>${obj.carbohydrates}</td>`);
+	$sugar.append(`<td>${obj.sugar}</td>`);
+	$fibre.append(`<td>${obj.fiber}</td>`);
+	$sodium.append(`<td>${obj.sodium}</td>`);
+	$potassium.append(`<td>${obj.potassium}</td>`);
 	$cholesterol.append(`<td>${obj.cholesterol}</td>`);
-	
-
 }
 
 SUBMIT_NUTRITION_BTN.on("click", function (e) {
@@ -95,5 +98,6 @@ SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	strQuery = SUBMIT_NUTRITION_BTN.prev().val();
 
 	ajaxGetApi();
+				$("#nutrition").val("");
 });
 // INUPT id = nutrition & button id = submitNutrition
