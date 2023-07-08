@@ -145,18 +145,19 @@ function displayIngredientSuggestion(data) {
   
 };
 
+
 function displaySelectedIngredients(){
   const selectedIngredientContainer = document.querySelector('.selectedIngredients');
   selectedIngredientContainer.innerHTML = '';
 
   selectedIngredients.forEach(ingredient => {
     const ingredientItem = document.createElement('span');
-    ingredientItem.textContent = ingredient;
-    selectedIngredientContainer.appendChild(ingredientItem);
+      ingredientItem.textContent += `${ingredient}, `;
     
+    selectedIngredientContainer.appendChild(ingredientItem);
+
   });
 };
-
 
 // Step 2: Add an event listener to the search button
 btnEl.addEventListener('click', function() {
@@ -177,7 +178,7 @@ inputEl.addEventListener('input', function() {
 //add eventlistener to input click
 inputEl.addEventListener('click', function() {
   const query = inputEl.value;
-  //comment the following function call for now
+  
   fetchIngredientSuggestions(query);
 });
 
