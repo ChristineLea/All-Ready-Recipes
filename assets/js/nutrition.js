@@ -1,40 +1,44 @@
 // // CALORIE NINJAS API
 const API_KEY = "J4fyAOnwuXGtNt+PjYXPZg==g2QzfMyhXiwtkSjP";
 // test query
-let query = "I live in melbourne";
-
+let strQuery = "";
+const submitNutrition = $("#submitNutrition");
 // VALIDATION
 // convert kg to pounds
 
 // ON SUBMIT clear alertUser()
 function alertUser() {
-	$("#info").append("<p>No ingredient/s or food item/s were entered. Please try again.</p>");
+	$("#info").append(
+		"<p>No ingredient/s or food item/s were entered. Please try again.</p>"
+	);
 	return;
 }
 // GET request
-$.ajax({
-	method: "GET",
-	url: "https://api.calorieninjas.com/v1/nutrition?query=" + query,
-	headers: { "X-Api-Key": API_KEY },
-	contentType: "application/json",
-	success: function (result) {
-		// access returned data
-		const objData = result.items;
-		// check if return obj is empty - due to no food/ingredients entered
-		if (result.items.length === 0) {
-			// return a function to output a notifcation to user
-			alertUser();
-			console.log("empty");
-		} else {
-			// Pass ingredient/Food data to function so it can be stored in an object and accessed to display
-			sortObjData(objData);
-		}
-	},
-	// if error - log to console
-	error: function ajaxError(jqXHR) {
-		console.error("Error: ", jqXHR.responseText);
-	},
-});
+function ajaxGetApi() {
+	$.ajax({
+		method: "GET",
+		url: "https://api.calorieninjas.com/v1/nutrition?query=" + strQuery,
+		headers: { "X-Api-Key": API_KEY },
+		contentType: "application/json",
+		success: function (result) {
+			// access returned data
+			const objData = result.items;
+			// check if return obj is empty - due to no food/ingredients entered
+			if (result.items.length === 0) {
+				// return a function to output a notifcation to user
+				alertUser();
+				console.log("empty");
+			} else {
+				// Pass ingredient/Food data to function so it can be stored in an object and accessed to display
+				sortObjData(objData);
+			}
+		},
+		// if error - log to console
+		error: function ajaxError(jqXHR) {
+			console.error("Error: ", jqXHR.responseText);
+		},
+	});
+}
 
 // function to sort/format returned data
 function sortObjData(objData) {
@@ -64,4 +68,11 @@ function displayData(obj) {
 	body.append(pEl);
 }
 
+submitNutrition.on("click", function (e) {
+	e.preventDefault();
+
+	strQuery = submitNutrition.prev().val();
+
+	ajaxGetApi();
+});
 // INUPT id = nutrition & button id = submitNutrition
