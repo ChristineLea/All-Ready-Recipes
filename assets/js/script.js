@@ -4,9 +4,14 @@ const btnEl = document.querySelector('.searchBtn');
 const recipeList = document.querySelector('.recipeList');
 const recipeModal = document.querySelector('.recipeModal');
 const noRecipeMessage = document.querySelector('.noRecipeMessage');
+const showRecipeBtn = document.querySelector('.showRecipe');
+
 
 // Step 3: Add API Key
 const apiKey = "8734635d4cfc4d00bb8e0e29263ce8f2";
+
+//Global Variable
+let recipeData = [];
 
 // Step 4: Function to fetch data from API
 function fetchRecipe(ingredients) {
@@ -16,6 +21,7 @@ function fetchRecipe(ingredients) {
   fetch(url)
     .then(response => response.json())
     .then(function(data) {
+      recipeData = data;
       displayRecipe(data);
     });
 }
@@ -41,7 +47,15 @@ function displayRecipe(data) {
       recipeElement.appendChild(imageElement);
       recipeElement.appendChild(titleElement);
 
-      // Append recipe to recipeList
+      // Create "Show Recipe" button
+      const showRecipeButton = document.createElement('button');
+      showRecipeButton.textContent = 'Show Recipe';
+      showRecipeButton.addEventListener('click', function() {
+        showRecipeModal(recipe.id);
+      });
+
+      // Append recipe and button to recipeList
+      recipeElement.appendChild(showRecipeButton);
       recipeList.appendChild(recipeElement);
 
       // Create elements and append to recipeModal
@@ -181,6 +195,22 @@ inputEl.addEventListener('click', function() {
   
   fetchIngredientSuggestions(query);
 });
+
+
+
+function showRecipeModal(recipeId) {
+  const selectedRecipe = recipeData.find(recipe => recipe.id === recipeId);
+
+  if (selectedRecipe) {
+    recipeModal.style.display = 'block';
+    // Update recipeModal content with selected recipe details
+    // ...
+  } else {
+    recipeModal.style.display = 'none';
+  }
+}
+
+showRecipeBtn.addEventListener('click', showRecipeModal);
 
 
 
