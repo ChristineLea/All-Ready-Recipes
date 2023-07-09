@@ -7,14 +7,10 @@ let strQuery = "";
 function alertUser() {
 	let $form = $("form");
 	let $alert = $("<p>").text(
-		"No ingredient/s or food item/s were entered. Please try again.");
-	if (bool === true) {
-		$form.append($alert);
-	}
-	if (bool === false) {
-		$form.remove($alert);
-	}
-	return;
+		"No ingredient/s or food item/s were entered. Please try again."
+	);
+
+	$form.append($alert);
 }
 // GET request
 function ajaxGetApi() {
@@ -64,40 +60,58 @@ function sortObjData(objData) {
 	}
 }
 // test to display/output to the user
-function displayData(obj) {
-	const $ingredient = $("#ingredient");
-	const $serving = $("#serving");
-	const $calories = $("#calories");
-	const $protein = $("#protein");
-	const $fat = $("#fat");
-	const $satFat = $("#sat-fat");
-	const $carbs = $("#carbs");
-	const $sugar = $("#sugar");
-	const $fibre = $("#fibre");
-	const $sodium = $("#sodium");
-	const $potassium = $("#potassium");
-	const $cholesterol = $("#cholesterol");
 
-	$ingredient.append(`<th>${obj.name}</th>`);
-	$serving.append(`<td>${obj.servingSize}</td>`);
-	$calories.append(`<td>${obj.calories}</td>`);
-	$protein.append(`<td>${obj.protein}</td>`);
-	$fat.append(`<td>${obj.fat}</td>`);
-	$satFat.append(`<td>${obj.saturatedFat}</td>`);
-	$carbs.append(`<td>${obj.carbohydrates}</td>`);
-	$sugar.append(`<td>${obj.sugar}</td>`);
-	$fibre.append(`<td>${obj.fiber}</td>`);
-	$sodium.append(`<td>${obj.sodium}</td>`);
-	$potassium.append(`<td>${obj.potassium}</td>`);
-	$cholesterol.append(`<td>${obj.cholesterol}</td>`);
+// make first letter uppercase
+function displayData(obj) {
+	let $tBody = $("<tbody>");
+	let $table = $("<table>");
+	let $tableCol = $(".table-col");
+	// CHANGE to append table
+	$tBody.append(
+		`
+		<tr><th>
+		Ingredient</th><th>${obj.name}</th></tr>
+		<tr><th>
+		Serving Size</th><td>${obj.servingSize}</td></tr>
+		<tr><th>
+		Calories</th><td>${obj.calories}</td></tr>
+		<tr><th>
+		Protein</th><td>${obj.protein}</td></tr>
+		<tr><th>
+		Total Fat</th><td>${obj.fat}</td></tr>
+		<tr><th>
+		Saturated Fat</th><td>${obj.saturatedFat}</td></tr>
+		<tr><th>
+		Carbohydrates</th><td>${obj.carbohydrates}</td></tr>
+		<tr><th>
+		Sugar</th><td>${obj.sugar}</td></tr>
+		<tr><th>
+		Dietary Fibre</th><td>${obj.fiber}</td></tr>
+		<tr><th>
+		Sodium</th><td>${obj.sodium}</td></tr>
+		<tr><th>
+		Potassium</th><td>${obj.potassium}</td></tr>
+		<tr><th>
+		Cholesterol</th><td>${obj.cholesterol}</td></tr>
+		`
+	);
+
+	$table.append($tBody);
+	$tableCol.append($table);
 }
 
 SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	e.preventDefault();
 
-	strQuery = SUBMIT_NUTRITION_BTN.prev().val();
+	// DOM traversal to get input field value
+	strQuery = SUBMIT_NUTRITION_BTN.parent()
+		.closest(".field")
+		.children()
+		.eq(0)
+		.children()
+		.val();
 
 	ajaxGetApi();
-				$("#nutrition").val("");
+	$("#nutrition").val("");
 });
 // INUPT id = nutrition & button id = submitNutrition

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <!-- STYLES need to be before bulma to override them -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
@@ -14,66 +15,66 @@
 <body>
 
     <!-- NUTRITIONAL INFORMATION SECTION -->
-    <div class="section">
-        <div class="container">
-            
-                <h4>Find Nutritional Information</h4>
-                <p>here is some text .....</p>
-                <p>Default quantity is 100g enter in increments of 100g / prefix a quantity before the item</p>
-                <form action="#">
-                    <!-- max # characters is 1500 -->
-                    <label for="nutrition">Type in single ingredient items</label>
-                    <input type="text" id="nutrition" name="nutrition" placeholder="type in your query here"
-                        maxlength="1500">
-                    <button id="submitNutrition">Submit</button>
-                </form>
 
+    <div class="section">
+        <div class="container content">
+            <div class="columns">
+                <div class="column is-12 has-background-primary-light">
+                    <p class="title is-3 text-color">Find Nutritional Information</p>
+                    <p class="subtitle is-5 text-color">Checking nutritional information can help us to make healthier
+                        choices
+                    </p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <p>Our advanced and easy to use nutrition tool can be used to search nutritional information of a
+                        <span>single ingredient</span>, <span>multiple ingredients</span>, and even a <span>meal</span>
+                        or
+                        <span>recipe</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container is-fullhd content">
+            <div class="columns">
+                <div class="column">
+                    <form action="#">
+                        <!-- max # characters is 1500 -->
+                        <div class="field">
+                            <label for="nutrition" class="label is-normal">I want to find out about:</label>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <input type="text" id="nutrition" name="nutrition" placeholder="enter food/s here"
+                                        maxlength="1500" class="input is-normal is-primary">
+                                </div>
+                                <div class="control">
+                                    <a id="submitNutrition" class="button is-primary is-normal">Show Me</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="columns is-3">
+                <div class="column is-full">
+                    <div class="table-col table is-bordered">
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-full has-text-centered mb-6 has-background-primary-light">
+                    <p class="is-size-7">The nutrition facts are based on an average serving size of 100g.</p>
+                    <p class="is-size-7">Nutritional information provided is to be used as a guide only.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <table class="table">
-        <tbody id="table-body">
-            <tr id="ingredient">
-                <th>Ingredient</th>
-            </tr>
-            <tr id="serving">
-                <th>Serving Size</th>
-            </tr>
-            <tr id="calories">
-                <th>Calories</th>
-            </tr>
-            <tr id="protein">
-                <th>Protein</th>
-            </tr>
-            <tr id="fat">
-                <th>FAT, Total</th>
-            </tr>
-            <tr id="sat-fat">
-                <th> - Saturated Fat</th>
-            </tr>
-            <tr id="carbs">
-                <th>Carbohydrate</th>
-            </tr>
-            <tr id="sugar">
-                <th> - Sugar</th>
-            </tr>
-            <tr id="fibre">
-                <th>Dietary Fibre</th>
-            </tr>
-            <tr id="sodium">
-                <th>Sodium</th>
-            </tr>
-            <tr id="potassium">
-                <th>Potassium</th>
-            </tr>
-            <tr id="cholesterol">
-                <th>Cholesterol</th>
-            </tr>
-            <!-- <tr>
-                <td>eg. average serving size per 100ginformation relating to where info sourced</td>
-            </tr> -->
-        </tbody>
-    </table>
+
+
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
