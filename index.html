@@ -15,7 +15,7 @@
 <body>
 
     <!-- NUTRITIONAL INFORMATION SECTION -->
-
+        <!-- I have added some basic Bulma CSS classes -->
     <div class="section">
         <div class="container content">
             <div class="columns">
@@ -40,13 +40,13 @@
             <div class="columns">
                 <div class="column">
                     <form action="#">
-                        <!-- max # characters is 1500 -->
                         <div class="field">
                             <label for="nutrition" class="label is-normal">I want to find out about:</label>
                             <div class="field has-addons">
                                 <div class="control is-expanded">
+                                     <!-- max # characters is 1500 -->
                                     <input type="text" id="nutrition" name="nutrition" placeholder="enter food/s here"
-                                        maxlength="1500" class="input is-normal is-primary">
+                                        maxlength="1500" class="input is-normal is-primary" required>
                                 </div>
                                 <div class="control">
                                     <a id="submitNutrition" class="button is-primary is-normal">Show Me</a>
@@ -60,6 +60,7 @@
             <div class="columns is-3">
                 <div class="column is-full">
                     <div class="table-col table is-bordered">
+                        <!-- JavaScript will generate table/s to display results -->
                     </div>
                 </div>
             </div>

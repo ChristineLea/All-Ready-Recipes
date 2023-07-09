@@ -59,7 +59,6 @@ function sortObjData(objData) {
 		displayData(obj);
 	}
 }
-// test to display/output to the user
 
 // make first letter uppercase
 function displayData(obj) {
@@ -100,6 +99,7 @@ function displayData(obj) {
 	$tableCol.append($table);
 }
 
+// Event to generate results
 SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	e.preventDefault();
 
@@ -114,4 +114,4 @@ SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	ajaxGetApi();
 	$("#nutrition").val("");
 });
-// INUPT id = nutrition & button id = submitNutrition
+
