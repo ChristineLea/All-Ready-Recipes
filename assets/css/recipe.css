@@ -62,16 +62,17 @@
 
 .close-btn {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  transform: translate(-50%, 50%);
-  font-weight: bolder;
-  padding: 5px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  padding: 5px 10px;
   background-color: #f44336;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  
 }
 
 
