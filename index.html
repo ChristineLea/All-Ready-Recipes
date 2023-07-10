@@ -15,99 +15,92 @@
 
 <body>
     <!-- NAVBAR -->
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
         </a>
-    
 
-    <div class="navbar-menu">
-        <div class="navbar-start">
-            <a class="navbar-item">
-                Home
-            </a>
 
-            <a class="navbar-item">
-                Ideas for Dinner
-            </a>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item">
+                    Home
+                </a>
 
-            <a href="" class="navbar-item">
-                Nutrition Information
-            </a>
+                <a class="navbar-item">
+                    Ideas for Dinner
+                </a>
+
+                <a href="" class="navbar-item">
+                    Nutrition Information
+                </a>
+            </div>
         </div>
+    </nav>
+    <!-- MERGE THESE CHANGES IN - IS LAYOUT / STRUCTURE -->
+    <!-- Will add in the form & instructions in here -->
 
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-primary">
-                        <strong>Sign up</strong>
-                    </a>
-                    <a class="button is-light">
-                        Log in
-                    </a>
+    <section class="section">
+        <div class="container">
+
+            <div class="columns is-8">
+                <!-- ASIDE -->
+                <div class="column is-one-third">
+                    <p class="title is-3">Ideas for Dinner</p>
+                    <p class="subtitle is-5">Easy as 1 2 3</p>
+                    <ol>
+                        <li>Please add instructions</li>
+                        <li>Please add instructions</li>
+                        <li>Please add instructions</li>
+                    </ol>
+                </div>
+                <!-- FORM REQUIreD BULMA CLASS LAYOUT -->
+                <div class="column is-two-thirds">
+                    <div class="field">
+                        <label for="" class="label"></label>
+                        <div class="control">
+                            <div class="input">
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
-    <!-- MAIN - with <form> & <aside> -->
-
-    <!-- NUTRITION section -->
-
-    <!-- FOOTER -->
-
-
-
+    </section>
     <!-- RIGHT SIDE Form -->
     <!-- function: user input form with submit button-->
     <!-- enter HTML URL for where data will be sent-->
     <form action="./assets/html/recipe.html" class="userInputForm">
-      <!-- add H2 for user input form (happy for the title to be changed)-->
-      <h2>Input your recipe preferences</h2>
-      <!-- questions for user input-->
-      <!-- select available ingrediants-->
-      <!--use Bulma input class CSS for text input vs select image(s)?-->
-      <label id="q1">
-        What ingrediants do you have available?
-        <input type="text" name="ingrediants" placeholder="pasta" /> </label
-      ><br />
+        <!-- add H2 for user input form (happy for the title to be changed)-->
+        <h2>Input your recipe preferences</h2>
+        <!-- questions for user input-->
+        <!-- select available ingrediants-->
+        <!--use Bulma input class CSS for text input vs select image(s)?-->
+        <label id="q1">
+            What ingrediants do you have available?
+            <input type="text" name="ingrediants" placeholder="pasta" /> </label><br />
 
 
 
-      <!-- select dietary requirements-->
-      <label id="q2"> Select you dietary preferences: </label><br />
-      <!-- use radio button to select intolerances-->
-      <input
-        type="radio"
-        id="gluten"
-        name="intolerances"
-        value="gluten"
-      /><label for="gluten">gluten</label><br />
-      <input type="radio" id="dairy" name="intolerances" value="dairy" /><label
-        for="dairy"
-        >dairy</label
-      ><br />
-      <input type="radio" id="egg" name="intolerances" value="egg" /><label
-        for="egg"
-        >Egg</label
-      ><br />
-      <input
-        type="radio"
-        id="peanut"
-        name="intolerances"
-        value="peanut"
-      /><label for="peanut">peanut</label><br />
+        <!-- select dietary requirements-->
+        <label id="q2"> Select you dietary preferences: </label><br />
+        <!-- use radio button to select intolerances-->
+        <input type="radio" id="gluten" name="intolerances" value="gluten" /><label for="gluten">gluten</label><br />
+        <input type="radio" id="dairy" name="intolerances" value="dairy" /><label for="dairy">dairy</label><br />
+        <input type="radio" id="egg" name="intolerances" value="egg" /><label for="egg">Egg</label><br />
+        <input type="radio" id="peanut" name="intolerances" value="peanut" /><label for="peanut">peanut</label><br />
 
 
-      <!-- select the type of cuisine-->
-      <label id="q3">
-        Select the maximum amount of time to prepare your recipe:
-      </label>
-      <!-- add submit button - this takes the user to second HTML page with recipe results-->
-      <input type="submit" id="submitPreferences" value="Submit" />
+        <!-- select the type of cuisine-->
+        <label id="q3">
+            Select the maximum amount of time to prepare your recipe:
+        </label>
+        <!-- add submit button - this takes the user to second HTML page with recipe results-->
+        <input type="submit" id="submitPreferences" value="Submit" />
     </form>
     <!-- NUTRITIONAL -->
 
@@ -166,15 +159,6 @@
         </tbody>
     </table>
     <!-- FOOTER -->
-  </body>
-</html>
+</body>
 
-<!-- GIVEN I want to check nutritional information
-WHEN I am on the home page or the recipe suggestion page
-THEN I can scroll to the bottom of the pages and view a nutritional info section
-WHEN I view this section I can see an input field and a short paragraph on what I can add into the input field
-THEN my input can be validated to make sure it has been input correctly
-WHEN the input cannot be validated
-THEN a message alerts me on screen
-WHEN the input is validated
-THEN the input will display on screen to me -->
+</html>
