@@ -203,8 +203,70 @@ function showRecipeModal(recipeId) {
 
   if (selectedRecipe) {
     recipeModal.style.display = 'block';
-    // Update recipeModal content with selected recipe details
-    // ...
+    recipeModal.innerHTML = '';
+    const recipeTitle = document.createElement('h2');
+    recipeTitle.textContent = selectedRecipe.title;
+    recipeModal.appendChild(recipeTitle);
+
+    const recipeIdElement = document.createElement('div');
+    recipeIdElement.textContent = `ID: ${selectedRecipe.id}`;
+    recipeModal.appendChild(recipeIdElement);
+
+    const recipeLikes = document.createElement('div');
+    recipeLikes.textContent = `Likes: ${selectedRecipe.likes}`;
+    recipeModal.appendChild(recipeLikes);
+
+    const recipeMissedIngredientCount = document.createElement('div');
+    recipeMissedIngredientCount.textContent = `Missed Ingredient Count: ${selectedRecipe.missedIngredientCount}`;
+    recipeModal.appendChild(recipeMissedIngredientCount);
+
+    const recipeMissedIngredients = document.createElement('ul');
+    selectedRecipe.missedIngredients.forEach(ingredient => {
+      const ingredientItem = document.createElement('li');
+      ingredientItem.textContent = ingredient.original;
+
+      const ingredientImage = document.createElement('img');
+      ingredientImage.src = ingredient.image;
+      ingredientImage.alt = ingredient.name;
+      ingredientItem.appendChild(ingredientImage);
+
+      recipeMissedIngredients.appendChild(ingredientItem);
+    });
+    recipeModal.appendChild(recipeMissedIngredients);
+
+    const recipeUnusedIngredients = document.createElement('ul');
+    selectedRecipe.unusedIngredients.forEach(ingredient => {
+      const ingredientItem = document.createElement('li');
+      ingredientItem.textContent = ingredient.original;
+
+      const ingredientImage = document.createElement('img');
+      ingredientImage.src = ingredient.image;
+      ingredientImage.alt = ingredient.name;
+      ingredientItem.appendChild(ingredientImage);
+
+      recipeUnusedIngredients.appendChild(ingredientItem);
+    });
+    recipeModal.appendChild(recipeUnusedIngredients);
+
+    const recipeUsedIngredientCount = document.createElement('div');
+    recipeUsedIngredientCount.textContent = `Used Ingredient Count: ${selectedRecipe.usedIngredientCount}`;
+    recipeModal.appendChild(recipeUsedIngredientCount);
+
+    const recipeUsedIngredients = document.createElement('ul');
+    selectedRecipe.usedIngredients.forEach(ingredient => {
+      const ingredientItem = document.createElement('li');
+      ingredientItem.textContent = ingredient.original;
+
+      const ingredientImage = document.createElement('img');
+      ingredientImage.src = ingredient.image;
+      ingredientImage.alt = ingredient.name;
+      ingredientItem.appendChild(ingredientImage);
+
+      recipeUsedIngredients.appendChild(ingredientItem);
+    });
+    recipeModal.appendChild(recipeUsedIngredients);
+
+
   } else {
     recipeModal.style.display = 'none';
   }
