@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>Document</title>
 </head>
 
@@ -15,15 +17,14 @@
     <!-- function: user input form with submit button-->
     <!-- enter HTML URL for where data will be sent-->
     <form action="./assets/html/recipe.html" class="userInputForm">
-      <!-- add H2 for user input form (happy for the title to be changed)-->
-      <h2>Input your recipe preferences</h2>
-      <!-- questions for user input-->
-      <!-- select available ingrediants-->
-      <!--use Bulma input class CSS for text input vs select image(s)?-->
-      <label id="q1">
-        What ingrediants do you have available?
-        <input type="text" name="ingrediants" placeholder="pasta" /> </label
-      ><br />
+        <!-- add H2 for user input form (happy for the title to be changed)-->
+        <h2>Input your recipe preferences</h2>
+        <!-- questions for user input-->
+        <!-- select available ingrediants-->
+        <!--use Bulma input class CSS for text input vs select image(s)?-->
+        <label id="q1">
+            What ingrediants do you have available?
+            <input type="text" name="ingrediants" placeholder="pasta" /> </label><br />
 
 
 
@@ -35,21 +36,22 @@
         <input type="radio" id="egg" name="intolerances" value="egg" /><label for="egg">Egg</label><br />
         <input type="radio" id="peanut" name="intolerances" value="peanut" /><label for="peanut">peanut</label><br />
 
-      <!-- select the type of cuisine-->
-      <label id="q3">
-        Select the maximum amount of time to prepare your recipe:
-      </label>
-      <!-- add submit button - this takes the user to second HTML page with recipe results-->
-      <input type="submit" id="submitPreferences" value="Submit" />
+        <!-- select the type of cuisine-->
+        <label id="q3">
+            Select the maximum amount of time to prepare your recipe:
+        </label>
+        <!-- add submit button - this takes the user to second HTML page with recipe results-->
+        <input type="submit" id="submitPreferences" value="Submit" />
     </form>
     <!-- NUTRITIONAL -->
 
     <!-- FOOTER -->
-  </body>
+</body>
 
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script src="./assets/js/nutrition.js"></script>
+
 </html>
 =======
 
@@ -145,64 +147,67 @@
     <!-- NUTRITIONAL -->
 
     <!-- NUTRITIONAL INFORMATION SECTION -->
-        <!-- NUTRITIONAL INFORMATION SECTION -->
-        <!-- I have added some basic Bulma CSS classes -->
-        <div class="section">
-            <div class="container content">
-                <div class="columns">
-                    <div class="column is-12 has-background-primary-light">
-                        <p class="title is-3 text-color">Find Nutritional Information</p>
-                        <p class="subtitle is-5 text-color">Checking nutritional information can help us to make healthier
-                            choices
-                        </p>
-                    </div>
-                </div>
-                <div class="columns">
-                    <div class="column">
-                        <p>Our advanced and easy to use nutrition tool can be used to search nutritional information of a
-                            <span>single ingredient</span>, <span>multiple ingredients</span>, and even a <span>meal</span>
-                            or
-                            <span>recipe</span>.
-                        </p>
-                    </div>
+    <!-- NUTRITIONAL INFORMATION SECTION -->
+    <!-- I have added some basic Bulma CSS classes -->
+    <div class="section">
+        <div class="container content">
+            <div class="columns">
+                <div class="column is-12 has-background-primary-light">
+                    <p class="title is-3 text-color">Find Nutritional Information</p>
+                    <p class="subtitle is-5 text-color">Checking nutritional information can help us to make healthier
+                        choices
+                    </p>
                 </div>
             </div>
-            <div class="container is-fullhd content">
-                <div class="columns">
-                    <div class="column">
-                        <form action="#">
-                            <div class="field">
-                                <label for="nutrition" class="label is-normal">I want to find out about:</label>
-                                <div class="field has-addons">
-                                    <div class="control is-expanded">
-                                        <!-- max # characters is 1500 -->
-                                        <input type="text" id="nutrition" name="nutrition" placeholder="enter food/s here"
-                                            maxlength="1500" class="input is-normal is-primary" required>
-                                    </div>
-                                    <div class="control">
-                                        <a id="submitNutrition" class="button is-primary is-normal">Show Me</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-        
-                <div class="columns is-3">
-                    <div class="column is-full">
-                        <div class="table-col table is-bordered">
-                            <!-- JavaScript will generate table/s to display results -->
-                        </div>
-                    </div>
-                </div>
-                <div class="columns">
-                    <div class="column is-full has-text-centered mb-6 has-background-primary-light">
-                        <p class="is-size-7">The nutrition facts are based on an average serving size of 100g.</p>
-                        <p class="is-size-7">Nutritional information provided is to be used as a guide only.</p>
-                    </div>
+            <div class="columns">
+                <div class="column">
+                    <p>Our advanced and easy to use nutrition tool can be used to search nutritional information of a
+                        <span>single ingredient</span>, <span>multiple ingredients</span>, and even a <span>meal</span>
+                        or
+                        <span>recipe</span>.
+                    </p>
                 </div>
             </div>
         </div>
+        <div class="container is-fullhd content">
+            <div class="columns">
+                <div class="column">
+                    <form action="#">
+                        <div class="field">
+                            <label for="nutrition" class="label is-normal">I want to find out about:</label>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <!-- max # characters is 1500 -->
+                                    <input type="text" id="nutrition" name="nutrition" placeholder="enter food/s here"
+                                        maxlength="1500" class="input is-normal is-primary" required>
+                                </div>
+                                <div class="control">
+                                    <a id="submitNutrition" class="button is-primary is-normal">Show Me</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
-  </body>
+            <div class="columns is-3">
+                <div class="column is-full">
+                    <div class="table-col table is-bordered">
+                        <!-- JavaScript will generate table/s to display results -->
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-full has-text-centered mb-6 has-background-primary-light">
+                    <p class="is-size-7">The nutrition facts are based on an average serving size of 100g.</p>
+                    <p class="is-size-7">Nutritional information provided is to be used as a guide only.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
 </html>
