@@ -5,6 +5,7 @@ const recipeList = document.querySelector('.recipeList');
 const recipeModal = document.querySelector('.recipeModal');
 const noRecipeMessage = document.querySelector('.noRecipeMessage');
 const showRecipeBtn = document.querySelector('.showRecipe');
+const favoriteRecipeBtn = document.querySelector('.favoriteRecipes')
 
 
 // Step 3: Add API Key
@@ -204,6 +205,27 @@ function showRecipeModal(recipeId) {
   if (selectedRecipe) {
     recipeModal.style.display = 'block';
     recipeModal.innerHTML = '';
+
+    //create close button
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = 'Close';
+    closeBtn.addEventListener('click', function() {
+      recipeModal.style.display = 'none';
+    });
+    recipeModal.appendChild(closeBtn);
+
+    const likeBtn = document.createElement('button');
+    likeBtn.textContent = 'Like';
+    likeBtn.addEventListener('click', function() {
+      //safe selected recipe to localStroge 
+      addToFavorites(selectedRecipe);
+      likeBtn.textContent = 'Liked';
+      likeBtn.style.backgroundColor = 'green';
+
+    });
+
+    recipeModal.appendChild(likeBtn);
+
     const recipeTitle = document.createElement('h2');
     recipeTitle.textContent = selectedRecipe.title;
     recipeModal.appendChild(recipeTitle);
@@ -271,6 +293,70 @@ function showRecipeModal(recipeId) {
     recipeModal.style.display = 'none';
   }
 }
+
+//save Selected Recipe to LocalStorage and Favourite
+function addToFavorites(recipe) {
+  const favorite = getFavoriteFromStorege();
+
+  //check if the selected recipe already exist
+  if (favorite.some(favorite => favorite.id === recipe.id)) {
+    return; // if recipe already exit, nothing will be done.
+  }
+  favorite.push(recipe);
+  saveFavoriteToStorage(favorite);
+};
+
+//function to bet favourite from localSroge
+function getFavoriteFromStorege() {
+  const favoritesJSON = localStorage.getItem('favorites');
+  return favoritesJSON? JSON.parse(favoritesJSON):[];
+};
+
+//function to save to localStroge
+function saveFavoriteToStorage(favorites) {
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+};
+
+
+//  add event listener to the favoriteRecipes element
+ favoriteRecipeBtn.addEventListener('click', function() {
+  displayFavoriteRecipes();
+ });
+
+ function displayFavoriteRecipes() {
+  recipeList.innerHTML = '';
+  const favoriteRecipes = getFavoriteFromStorege();
+
+  if (favoriteRecipes.length > 0) {
+    favoriteRecipes.forEach(recipe => {
+      const recipeElement = document.createElement('article');
+      recipeElement.dataset.recipeId = recipe.id;
+
+      const imageElement = document.createElement('img');
+      imageElement.src = recipe.image;
+      imageElement.alt = recipe.title;
+
+      const titleElement = document.createElement('h3');
+      titleElement.textContent = recipe.title;
+
+      const showRecipeButton = document.createElement('button');
+      showRecipeButton.textContent = 'Show Recipe';
+      showRecipeButton.addEventListener('click', function() {
+        showRecipeModal(recipe.id);
+      });
+
+      recipeElement.appendChild(imageElement);
+      recipeElement.appendChild(titleElement);
+      recipeElement.appendChild(showRecipeButton);
+      recipeList.appendChild(recipeElement);
+    });
+  } else {
+    noRecipeMessage.textContent = 'No favorite recipes found.';
+  }
+}
+
+
+
 
 
 
