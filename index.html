@@ -1,17 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
     <title>Document</title>
-</head>
 
+
+
+
+    <!-- function: user input form with submit button-->
+    <!-- enter HTML URL for where data will be sent-->
+    <form action="./assets/html/recipe.html" class="userInputForm">
+      <!-- add H2 for user input form (happy for the title to be changed)-->
+      <h2>Input your recipe preferences</h2>
+      <!-- questions for user input-->
+      <!-- select available ingrediants-->
+      <!--use Bulma input class CSS for text input vs select image(s)?-->
+      <label id="q1">
+        What ingrediants do you have available?
+        <input type="text" name="ingrediants" placeholder="pasta" /> </label
+      ><br />
+
+      <!-- select dietary requirements-->
+      <label id="q2"> Select you dietary preferences: </label><br />
+      <!-- use radio button to select intolerances-->
+      <input
+        type="radio"
+        id="gluten"
+        name="intolerances"
+        value="gluten"
+      /><label for="gluten">gluten</label><br />
+      <input type="radio" id="dairy" name="intolerances" value="dairy" /><label
+        for="dairy"
+        >dairy</label
+      ><br />
+      <input type="radio" id="egg" name="intolerances" value="egg" /><label
+        for="egg"
+        >Egg</label
+      ><br />
+      <input
+        type="radio"
+        id="peanut"
+        name="intolerances"
+        value="peanut"
+      /><label for="peanut">peanut</label><br />
+
+      <!-- select the type of cuisine-->
+      <label id="q3">
+        Select the maximum amount of time to prepare your recipe:
+      </label>
+      <!-- add submit button - this takes the user to second HTML page with recipe results-->
+      <input type="submit" id="submitPreferences" value="Submit" />
+    </form>
+    <!-- NUTRITIONAL -->
+
+    <!-- FOOTER -->
+  </body>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script src="./assets/js/nutrition.js"></script>
+</html>
+=======
 
 <body>
 
