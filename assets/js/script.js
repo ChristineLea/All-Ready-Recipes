@@ -7,10 +7,11 @@ const recipeModal = document.querySelector('.recipeModal');
 const noRecipeMessage = document.querySelector('.noRecipeMessage');
 const showRecipeBtn = document.querySelector('.showRecipe');
 const favoriteRecipeBtn = document.querySelector('.favoriteRecipes')
+const recipeContainer = document.querySelector('.recipeContainer');
 
 
 // Step 3: Add API Key
-const apiKey = "8734635d4cfc4d00bb8e0e29263ce8f2";
+const apiKey = "54f091c799fb4297951a2a1ca21cf29f";
 
 
 //Global Variable
@@ -212,15 +213,23 @@ function showRecipeModal(recipeId) {
     recipeModal.style.display = 'block';
     recipeModal.innerHTML = '';
 
+    // Hide other visible elements
+    recipeContainer.classList.add('hide-element');
+
+
     //create close button
     const closeBtn = document.createElement('button');
     closeBtn.textContent = 'Close';
+    closeBtn.classList.add('button', 'is-link', 'is-rounded', 'close-btn');
     closeBtn.addEventListener('click', function() {
       recipeModal.style.display = 'none';
+      recipeContainer.classList.remove('hide-element');
     });
+   
     recipeModal.appendChild(closeBtn);
 
     const likeBtn = document.createElement('button');
+    likeBtn.classList.add('button', 'is-link', 'is-rounded', 'like-btn', 'right');
     likeBtn.textContent = 'Like';
     likeBtn.addEventListener('click', function() {
       //safe selected recipe to localStroge 
@@ -229,7 +238,7 @@ function showRecipeModal(recipeId) {
       likeBtn.style.backgroundColor = 'green';
 
     });
-
+ 
     recipeModal.appendChild(likeBtn);
 
     const recipeTitle = document.createElement('h2');
@@ -297,6 +306,10 @@ function showRecipeModal(recipeId) {
 
   } else {
     recipeModal.style.display = 'none';
+
+    // Show other elements
+    recipeContainer.classList.remove('hide-element');
+  
   }
 }
 
@@ -360,6 +373,10 @@ function saveFavoriteToStorage(favorites) {
     noRecipeMessage.textContent = 'No favorite recipes found.';
   }
 }
+
+
+
+
 
 
 
