@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
+
 
 <body>
     <!-- NAVBAR -->
@@ -57,6 +59,58 @@
 
     <!-- FOOTER -->
 
+
+
+    <!-- RIGHT SIDE Form -->
+    <!-- function: user input form with submit button-->
+    <!-- enter HTML URL for where data will be sent-->
+    <form action="./assets/html/recipe.html" class="userInputForm">
+      <!-- add H2 for user input form (happy for the title to be changed)-->
+      <h2>Input your recipe preferences</h2>
+      <!-- questions for user input-->
+      <!-- select available ingrediants-->
+      <!--use Bulma input class CSS for text input vs select image(s)?-->
+      <label id="q1">
+        What ingrediants do you have available?
+        <input type="text" name="ingrediants" placeholder="pasta" /> </label
+      ><br />
+
+
+
+      <!-- select dietary requirements-->
+      <label id="q2"> Select you dietary preferences: </label><br />
+      <!-- use radio button to select intolerances-->
+      <input
+        type="radio"
+        id="gluten"
+        name="intolerances"
+        value="gluten"
+      /><label for="gluten">gluten</label><br />
+      <input type="radio" id="dairy" name="intolerances" value="dairy" /><label
+        for="dairy"
+        >dairy</label
+      ><br />
+      <input type="radio" id="egg" name="intolerances" value="egg" /><label
+        for="egg"
+        >Egg</label
+      ><br />
+      <input
+        type="radio"
+        id="peanut"
+        name="intolerances"
+        value="peanut"
+      /><label for="peanut">peanut</label><br />
+
+
+      <!-- select the type of cuisine-->
+      <label id="q3">
+        Select the maximum amount of time to prepare your recipe:
+      </label>
+      <!-- add submit button - this takes the user to second HTML page with recipe results-->
+      <input type="submit" id="submitPreferences" value="Submit" />
+    </form>
+    <!-- NUTRITIONAL -->
+
     <!-- NUTRITIONAL INFORMATION SECTION -->
     <!-- THIS section can be deleted and MERGE in the updated BRANCH -->
     <h4>Find Nutritional Information</h4>
@@ -69,73 +123,58 @@
         <button id="submitNutrition">Submit</button>
     </form>
     <table class="table">
-        <thead>
-            <tr>
-                <th colspan="2">Nutrition Information</th>
-
+        <tbody id="table-body">
+            <tr id="ingredient">
+                <th>Ingredient</th>
             </tr>
-            <tr>
-                <th colspan="2">Ingredient</th>
+            <tr id="serving">
+                <th>Serving Size</th>
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Serving Size</td>
-                <td>add data</td>
-            </tr>
-            <tr>
-                <!-- <th> averge quantity per 100g </th> -->
-            </tr>
-            <tr>
+            <tr id="calories">
                 <th>Calories</th>
-                <td>add data</td>
             </tr>
-            <tr>
+            <tr id="protein">
                 <th>Protein</th>
-                <td>add data</td>
             </tr>
-            <tr>
+            <tr id="fat">
                 <th>FAT, Total</th>
-                <td>add data</td>
             </tr>
-            <tr>
+            <tr id="sat-fat">
                 <th> - Saturated Fat</th>
-                <td>add dat</td>
             </tr>
-            <tr>
+            <tr id="carbs">
                 <th>Carbohydrate</th>
-                <td>Add data</td>
             </tr>
-            <tr>
+            <tr id="sugar">
                 <th> - Sugar</th>
-                <td>add data</td>
             </tr>
-            <tr>
+            <tr id="fibre">
                 <th>Dietary Fibre</th>
-                <td>add data</td>
             </tr>
-            <tr>
+            <tr id="sodium">
                 <th>Sodium</th>
-                <td>add data</td>
             </tr>
-            <tr>
+            <tr id="potassium">
                 <th>Potassium</th>
-                <td>add data</td>
             </tr>
-            <tr>
+            <tr id="cholesterol">
                 <th>Cholesterol</th>
-                <td>Add data</td>
             </tr>
-            <tr>
-                <td colspan="2">information relating to where info sourced</td>
-            </tr>
+            <!-- <tr>
+                <td>eg. average serving size per 100ginformation relating to where info sourced</td>
+            </tr> -->
         </tbody>
     </table>
-
-</body>
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-<script src="./assets/js/nutrition.js"></script>
-
+    <!-- FOOTER -->
+  </body>
 </html>
 
+<!-- GIVEN I want to check nutritional information
+WHEN I am on the home page or the recipe suggestion page
+THEN I can scroll to the bottom of the pages and view a nutritional info section
+WHEN I view this section I can see an input field and a short paragraph on what I can add into the input field
+THEN my input can be validated to make sure it has been input correctly
+WHEN the input cannot be validated
+THEN a message alerts me on screen
+WHEN the input is validated
+THEN the input will display on screen to me -->
