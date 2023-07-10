@@ -15,7 +15,7 @@ let recipeData = [];
 
 // Step 4: Function to fetch data from API
 function fetchRecipe(ingredients) {
-  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=2`;
+  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=3`;
 
   // GET request using Fetch
   fetch(url)
@@ -271,8 +271,6 @@ function showRecipeModal(recipeId) {
     recipeModal.style.display = 'none';
   }
 }
-
-showRecipeBtn.addEventListener('click', showRecipeModal);
 
 
 

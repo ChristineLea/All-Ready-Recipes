@@ -1,3 +1,38 @@
+.suggestionsContainer {
+  position: relative;
+}
+
+.suggestionsList {
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.suggestionsList li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.suggestionsList li:hover {
+  background-color: #f2f2f2;
+}
+
 .recipeModal {
-  
-};
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 5px;
+  z-index: 9;
+ 
+
+
+}
