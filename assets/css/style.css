@@ -1,5 +1,14 @@
 .table-col {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+
+/*bulma control mixin - this is the Bulma Code that can be applied to any button on webpage* 
+happy for this to be edited!*/
+
+.bulma-control-mixin {
+  @include control;
+  background: #a87fc5;
+  color: white;
 }
