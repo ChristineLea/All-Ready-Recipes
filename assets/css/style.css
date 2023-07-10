@@ -1,19 +1,5 @@
-/* FAVOURITE Section */
-.tab-slider {
+.table-col {
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 3fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
 }
- 
-    /* SLIDER Section */
-.tab-content {
-    width: 700px;
-    height: 700px;
-    background-color:black;
-}
-    /* TAB Section */
-#tabBtn {
-    cursor: pointer;
-    transition: 0.3s;
-}
-/* ADD Bulma CSS Styles for hover & active effects */
