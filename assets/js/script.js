@@ -130,7 +130,7 @@ function displayRecipe(data) {
 
 
 function fetchIngredientSuggestions(query) {
-  const url = `https://api.spoonacular.com/food/ingredients/autocomplete?query=${query}&number=5&apiKey=${apiKey}`;
+  const url = `https://api.spoonacular.com/food/ingredients/autocomplete?query=${query}&number=8&apiKey=${apiKey}`;
 
   fetch(url)
     .then(response => response.json())
@@ -140,10 +140,31 @@ function fetchIngredientSuggestions(query) {
 };
 //empty array for Unser input selection
 let selectedIngredients = [];
+
 // Display Auto Completion 
 function displayIngredientSuggestion(data) {
   const suggestionsList = document.querySelector('.suggestionsList');
   suggestionsList.innerHTML = "";
+  const popularIngredients = ['chicken', 'beef', 'pasta', 'rice', 'tomatoes'];
+
+  //clear the popularIngredients when user engage with inputEl.
+  if (inputEl.value.trim() !== '') {
+    popularIngredients.length = 0;
+  }
+
+  popularIngredients.forEach(ingredient => {
+    // TODO: we need clear papularingridents when the user start typing
+    const suggestionItem = document.createElement('li');
+    suggestionItem.textContent = ingredient;
+    suggestionItem.addEventListener('click', function() {
+      const selectedIngredient = ingredient;
+      inputEl.value = '';
+      selectedIngredients.push(selectedIngredient);
+      displaySelectedIngredients();
+      suggestionsList.innerHTML = "";
+    });
+    suggestionsList.appendChild(suggestionItem);
+  });
 
   data.forEach(ingredient => {
     const suggestionItem = document.createElement('li');

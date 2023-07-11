@@ -2,6 +2,39 @@
 .subtitle {
   text-align: center;
 }
+
+.input-container {
+  position: relative;
+}
+
+.suggestionsContainer {
+  position: relative;
+}
+
+.suggestionsList {
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.suggestionsList li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.suggestionsList li:hover {
+  background-color: #f2f2f2;
+}
+
+
+
+
+
 .hide-element {
   display: none;
 }
