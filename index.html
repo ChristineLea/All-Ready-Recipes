@@ -16,42 +16,64 @@
 <!-- BODY DO NOT DELETE -->
 
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <!-- HAMBURGER BUTTON FOR RESPONSIVE DESIGN -->
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-        <!-- NAV BAR LINKS -->
-        <div class="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item">
-                    Home
-                </a>
+    <!-- HERO -->
+    <section class="hero is-primary is-medium">
+        <div class="hero-head">
 
-                <a class="navbar-item">
-                    Ideas for Dinner
-                </a>
-
-                <a href="" class="navbar-item">
-                    Nutrition Information
-                </a>
+        </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <p class="title is-1 is-spaced">
+                    Dinner Delights
+                </p>
+                <p class="subtitle is-3">
+                    Providing YOU with Dinner recipes guaranteed to Delight!
+                </p>
             </div>
         </div>
-    </nav>
+        <!-- NAVBAR -->
+        <div class="hero-foot">
+            <!-- NAV BAR LINKS -->
+            <nav class="navbar tabs is-boxed is-medium is-right" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <ul>
+                        <li class="is-active">
+                            <a class="navbar-item">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navbar-item">
+                                Ideas for Dinner
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="navbar-item">
+                                Nutrition Information
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="navbar-item">
+                                My Saved Recipes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
 
 
     <main>
+
         <!-- MAIN SECTION -->
-        <section class="section">
-            <div class="container">
+        <section class="section is-medium">
+            <div class="container content is-max-widescreen">
 
                 <div class="columns is-8">
                     <!-- MAIN SECTION ONE -->
                     <!-- ASIDE -->
-                    <div class="column is-one-third">
+                    <div class="column is-two-fifths">
                         <p class="title is-3">Ideas for Dinner</p>
                         <p class="subtitle is-5">Easy as 1 2 3</p>
                         <ol>
@@ -62,10 +84,10 @@
                     </div>
                     <!-- MAIN SECTION TWO -->
                     <!-- FORM -->
-                    <div class="column is-two-thirds">
+                    <div class="column is-three-fifths">
                         <!-- FORM HEADING -->
-                        <p class="title is-2">Add Your Selected Ingredients</p>
-                        <p class="subtitle is-4">
+                        <p class="title is-4">Add Your Selected Ingredients</p>
+                        <p class="subtitle is-6">
                             Seperate your ingredient enteries with a commar when entering more than
                             one ingredient!
                         </p>
@@ -128,6 +150,7 @@
         <div class="section">
             <div class="container content">
                 <div class="columns">
+                    
                     <div class="column is-12 has-background-primary-light">
                         <p class="title is-3 text-color">Find Nutritional Information</p>
                         <p class="subtitle is-5 text-color">Checking nutritional information can help us to make
@@ -137,7 +160,7 @@
                     </div>
                 </div>
                 <div class="columns">
-                    <div class="column">
+                    <div class="column mt-6 pt-6 has-text-centered">
                         <p>Our advanced and easy to use nutrition tool can be used to search nutritional information of
                             a
                             <span>single ingredient</span>, <span>multiple ingredients</span>, and even a
@@ -148,9 +171,9 @@
                     </div>
                 </div>
             </div>
-            <div class="container is-fullhd content">
+            <div class="container is-max-desktop content">
                 <div class="columns">
-                    <div class="column">
+                    <div class="column is-three-fifths is-offset-one-fifth">
                         <!-- FORM -->
                         <form action="#">
                             <div class="field">
@@ -178,6 +201,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="container">
                 <div class="columns">
                     <div class="column is-full has-text-centered mb-6 has-background-primary-light">
                         <p class="is-size-7">The nutrition facts are based on an average serving size of 100g.</p>
@@ -186,8 +211,13 @@
                 </div>
             </div>
         </div>
-
     </main>
+
+    <footer class="footer">
+        <div class="content has-text-centered is-primary">
+            <p>Dinner Delights</p>
+        </div>
+    </footer>
 
 </body>
 
