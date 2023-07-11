@@ -12,42 +12,57 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="favoriteRecipes"> Favorite-Recipes</div>
+  <div class="container">
+    <header class="hero is-primary">
+      <div class="hero-body">
+        <h1 class="title" is-center>Dinner Delights</h1>
+        <p class="subtitle">Discover a recipe customized to the ingredients you currently have in your fridge.</p>
+        
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="../../index.html">Home Page</a>
+            <div class="navbar-item">
+              <div class="favoriteRecipes">Favorite Recipes</div>
+            </div>
+            <div class="navbar-item">
+              <div>Previous Searched Recipes</div>
+            </div>
+          </div>
+        </nav>
+        
+    </header>
 
-    <h1>Search Recipes</h1>
-    <div class="selectedIngredients"></div>
-
-    <input class="ingredients" type="text">
-    <ul class="suggestionsList"></ul>
-    <button class="searchBtn">Search</button>
-  
-    <p class="noRecipeMessage"></p>
-  </header>
-
-  <h3></h3>
-
-  <section 
-  class="recipeContainer">
-  <!-- Recipes Title and Image -->
-    <h2></h2>
-    <div class="recipeList"></div>
+    <section class="section">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column">
+            <p class="title is-4">Your Ingredients</p>
+            <div class="selectedIngredients"></div>
+            <input class="input ingredients" type="text" placeholder="Enter ingredients">
+            <ul class="suggestionsList"></ul>
+          </div>
+          <div class="column is-narrow">
+            <button class="button is-primary searchBtn">Find Recipes</button>
+          </div>
+        </div>
+        <p class="noRecipeMessage"></p>
+      </div>
+    </section>
     
-  </section>
 
-  <section class="recipeModal">
-    
-    <!-- <h2></h2>
-    <div class="recipeId"></div>
-    <div class="recipeLikes"></div>
-    <div class="recipeMissedIngredientCount"></div>
-    <ul class="recipeMissedIngredients"></ul>
-    <ul class="recipeUnusedIngredients"></ul>
-    <div class="recipeUsedIngredientCount"></div>
-    <ul class="recipeUsedIngredients"></ul> -->
-  </section>
+    <section class="section recipeContainer">
+      <div class="container">
+        <h2 class="title"></h2>
+        <div class="recipeList"></div>
+      </div>
+    </section>
 
-
+    <section class="section recipeModal">
+      <div class="container">
+        <!-- Recipe details will be dynamically added here -->
+      </div>
+    </section>
+ </div>
 
   <script src="..//js/script.js"></script>
 </body>

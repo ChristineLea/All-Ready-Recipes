@@ -1,5 +1,4 @@
 // Step 1: HTML References
-
 const inputEl = document.querySelector('.ingredients');
 const btnEl = document.querySelector('.searchBtn');
 const recipeList = document.querySelector('.recipeList');
@@ -13,26 +12,21 @@ const recipeContainer = document.querySelector('.recipeContainer');
 // Step 3: Add API Key
 const apiKey = "54f091c799fb4297951a2a1ca21cf29f";
 
-
 //Global Variable
 let recipeData = [];
 
 // Step 4: Function to fetch data from API
 function fetchRecipe(ingredients) {
-
   const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=3`;
 
   // GET request using Fetch
   fetch(url)
-
     .then(response => response.json())
     .then(function(data) {
       recipeData = data;
-
       displayRecipe(data);
     });
 }
-
 
 // Step 5: render Recipe
 function displayRecipe(data) {
@@ -217,16 +211,7 @@ function showRecipeModal(recipeId) {
     recipeContainer.classList.add('hide-element');
 
 
-    //create close button
-    const closeBtn = document.createElement('button');
-    closeBtn.textContent = 'Close';
-    closeBtn.classList.add('button', 'is-link', 'is-rounded', 'close-btn');
-    closeBtn.addEventListener('click', function() {
-      recipeModal.style.display = 'none';
-      recipeContainer.classList.remove('hide-element');
-    });
-   
-    recipeModal.appendChild(closeBtn);
+
 
     const likeBtn = document.createElement('button');
     likeBtn.classList.add('button', 'is-link', 'is-rounded', 'like-btn', 'right');
@@ -300,8 +285,20 @@ function showRecipeModal(recipeId) {
       ingredientItem.appendChild(ingredientImage);
 
       recipeUsedIngredients.appendChild(ingredientItem);
+
     });
     recipeModal.appendChild(recipeUsedIngredients);
+
+    //create close button
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = 'Close Recipe Details';
+    closeBtn.classList.add('close-btn');
+    closeBtn.addEventListener('click', function() {
+      recipeModal.style.display = 'none';
+      recipeContainer.classList.remove('hide-element');
+    });
+  
+    recipeModal.appendChild(closeBtn);
 
 
   } else {
@@ -383,36 +380,4 @@ function saveFavoriteToStorage(favorites) {
 
 
 
-
-
-// Step 5: Display Recipe to HTML
-function displayRecipe(data) {
-  //
-  imgEl.innerHTML = '';
-  titleEl.innerHTML = '';
-  //itterate over each element in the data array
-  if (data.length > 0) {
-    data.forEach(recipe => {
-      const recipeImg = recipe.image;
-      const recipeTitle = recipe.title;
-
-      // Create image element
-      const imageElement = document.createElement('img');
-      imageElement.src = recipeImg;
-      imageElement.alt = recipeTitle;
-      imgEl.appendChild(imageElement);
-
-      // Create title element
-      const titleElement = document.createElement('h2');
-      titleElement.textContent = recipeTitle;
-      titleEl.appendChild(titleElement);
-    });
-  }
-}
-
-// Step 2: Add an event listener to the search button
-btnEl.addEventListener('click', function() {
-  const userInput = inputEl.value;
-  fetchApi(userInput);
-});
 
