@@ -17,7 +17,7 @@ let recipeData = [];
 
 // Step 4: Function to fetch data from API
 function fetchRecipe(ingredients) {
-  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=3`;
+  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=8`;
 
   // GET request using Fetch
   fetch(url)
@@ -32,103 +32,50 @@ function fetchRecipe(ingredients) {
 function displayRecipe(data) {
   if (data.length > 0) {
     recipeList.innerHTML = '';
-    recipeModal.innerHTML = '';
 
     data.forEach(recipe => {
+      // Create recipe card
+      const recipeCard = document.createElement('div');
+      recipeCard.classList.add('column', 'is-one-third');
+
+      // Create card content
+      const cardContent = document.createElement('div');
+      cardContent.classList.add('card', 'content');
+
       // Create image element for recipe
       const imageElement = document.createElement('img');
-      
       imageElement.src = recipe.image;
       imageElement.alt = recipe.title;
 
       // Create title element for recipe
       const titleElement = document.createElement('h3');
+      titleElement.classList.add('recipe-title');
       titleElement.textContent = recipe.title;
 
-      // Append image and title elements to recipe
-      const recipeElement = document.createElement('article');
-      recipeElement.appendChild(imageElement);
-      recipeElement.appendChild(titleElement);
-
-      // Create "Show Recipe" button
-      const showRecipeButton = document.createElement('button');
-      showRecipeButton.textContent = 'Show Recipe';
-      showRecipeButton.addEventListener('click', function() {
+      // Create "View Recipe" button
+      const buttonElement = document.createElement('button');
+      buttonElement.textContent = 'View Recipe';
+      buttonElement.classList.add('button', 'is-primary');
+      buttonElement.addEventListener('click', function() {
         showRecipeModal(recipe.id);
       });
 
-      // Append recipe and button to recipeList
-      recipeElement.appendChild(showRecipeButton);
-      recipeList.appendChild(recipeElement);
+      // Append image, title, and button elements to card content
+      cardContent.appendChild(imageElement);
+      cardContent.appendChild(titleElement);
+      cardContent.appendChild(buttonElement);
 
-      // Create elements and append to recipeModal
-      const recipeId = document.createElement('p');
-      recipeId.textContent = `ID: ${recipe.id}`;
+      // Append card content to recipe card
+      recipeCard.appendChild(cardContent);
 
-      const recipeLikes = document.createElement('p');
-      recipeLikes.textContent = `Likes: ${recipe.likes}`;
-
-      const recipeMissedIngredientCount = document.createElement('p');
-      recipeMissedIngredientCount.textContent = `Missed Ingredient Count: ${recipe.missedIngredientCount}`;
-
-      const recipeMissedIngredients = document.createElement('ul');
-      recipe.missedIngredients.forEach(ingredient => {
-        const ingredientItem = document.createElement('li');
-        ingredientItem.textContent = ingredient.original;
-
-        const ingredientImage = document.createElement('img');
-        ingredientImage.src = ingredient.image;
-        ingredientImage.alt = ingredient.name;
-        ingredientItem.appendChild(ingredientImage);
-
-        recipeMissedIngredients.appendChild(ingredientItem);
-      });
-
-      const recipeUnusedIngredients = document.createElement('ul');
-      recipe.unusedIngredients.forEach(ingredient => {
-        const ingredientItem = document.createElement('li');
-        ingredientItem.textContent = ingredient.original;
-
-        const ingredientImage = document.createElement('img');
-        ingredientImage.src = ingredient.image;
-        ingredientImage.alt = ingredient.name;
-        ingredientItem.appendChild(ingredientImage);
-
-
-        recipeUnusedIngredients.appendChild(ingredientItem);
-      });
-
-      const recipeUsedIngredientCount = document.createElement('p');
-      recipeUsedIngredientCount.textContent = `Used Ingredient Count: ${recipe.usedIngredientCount}`;
-
-      const recipeUsedIngredients = document.createElement('ul');
-      recipe.usedIngredients.forEach(ingredient => {
-        const ingredientItem = document.createElement('li');
-        ingredientItem.textContent = ingredient.original;
-
-        const ingredientImage = document.createElement('img');
-        ingredientImage.src = ingredient.image;
-        ingredientImage.alt = ingredient.name;
-        ingredientItem.appendChild(ingredientImage);
-
-        recipeUsedIngredients.appendChild(ingredientItem);
-      });
-
-      recipeModal.appendChild(recipeId);
-      recipeModal.appendChild(recipeLikes);
-      recipeModal.appendChild(recipeMissedIngredientCount);
-      recipeModal.appendChild(recipeMissedIngredients);
-      recipeModal.appendChild(recipeUnusedIngredients);
-      recipeModal.appendChild(recipeUsedIngredientCount);
-      recipeModal.appendChild(recipeUsedIngredients);
+      // Append recipe card to recipe list
+      recipeList.appendChild(recipeCard);
     });
   } else {
     // Display message if no recipe found
-    noRecipeMessage.textContent = "No recipe found.";
+    noRecipeMessage.textContent = 'No recipes found.';
   }
 }
-//selected ingredient chosen by users
-
 
 function fetchIngredientSuggestions(query) {
   const url = `https://api.spoonacular.com/food/ingredients/autocomplete?query=${query}&number=8&apiKey=${apiKey}`;
@@ -197,8 +144,8 @@ function displaySelectedIngredients(){
   });
 
   if (selectedIngredients.length > 0) {
-    noRecipeMessage.textContent = `You have selected the ingredient(s). 
-    You can add multiple ingredients!`
+    noRecipeMessage.textContent = `You have selected the above ingredient(s). 
+    Add More!`
   } else {
     noRecipeMessage.textContent = '';
   }

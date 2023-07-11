@@ -39,6 +39,37 @@
   display: none;
 }
 
+.card {
+  padding: 0px;
+}
+
+.recipeList .card .title {
+  font-size: 10px;
+}
+
+
+.content {
+  padding: 0px;
+}
+
+.card .button {
+  align-items: center !important;
+  font-size: 12px;
+  padding: 10px;
+  margin: 0px;
+ 
+}
+
+.recipe-title {
+  font-size: 13px !important;
+  text-align: center !important;
+  margin-top: 2px !important;
+}
+
+
+
+
+
 .recipeModal {
   display: none;
   position: fixed;
