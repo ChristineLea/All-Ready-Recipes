@@ -1,14 +1,55 @@
 .table-col {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 2rem;
 }
 
 /*bulma control mixin - this is the Bulma Code that can be applied to any button on webpage* 
 happy for this to be edited!*/
 
 .bulma-control-mixin {
-  @include control;
-  background: #a87fc5;
-  color: white;
+	@include control;
+	background: #a87fc5;
+	color: white;
+}
+
+/* CSS KEYFRAME ANIMATION FOR LOADING SPINNER */
+#spinner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+}
+
+.spinner {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: conic-gradient(cyan, yellow, magenta, cyan);
+	border: 4px solid white;
+	box-shadow: inset 0px 0px 110px -70px black;
+	position: relative;
+	animation: spin 1.5s linear infinite;
+}
+.spinner::after {
+  content: "";
+  background-color: white;
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0px 0px 110px -70px black;
+  border: 4px solid white;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
