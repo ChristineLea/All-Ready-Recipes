@@ -1,4 +1,4 @@
-// // CALORIE NINJAS API
+// // // CALORIE NINJAS API
 const API_KEY = "J4fyAOnwuXGtNt+PjYXPZg==g2QzfMyhXiwtkSjP";
 const SUBMIT_NUTRITION_BTN = $("#submitNutrition");
 let strQuery = "";
@@ -103,6 +103,10 @@ function displayData(obj) {
 SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	e.preventDefault();
 
+	// Remove any <table> node elements from previous searches
+	if ($(".table-col").children()) {
+		$(".table-col").children().remove();
+}
 	// DOM traversal to get input field value
 	strQuery = SUBMIT_NUTRITION_BTN.parent()
 		.closest(".field")
@@ -114,4 +118,3 @@ SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	ajaxGetApi();
 	$("#nutrition").val("");
 });
-
