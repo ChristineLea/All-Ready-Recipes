@@ -10,14 +10,16 @@ const recipeContainer = document.querySelector('.recipeContainer');
 
 
 // Step 3: Add API Key
-const apiKey = "54f091c799fb4297951a2a1ca21cf29f";
+const apiKey = "8734635d4cfc4d00bb8e0e29263ce8f2";
 
 //Global Variable
 let recipeData = [];
 
+
+
 // Step 4: Function to fetch data from API
 function fetchRecipe(ingredients) {
-  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=8`;
+  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=9`;
 
   // GET request using Fetch
   fetch(url)
@@ -347,10 +349,17 @@ function saveFavoriteToStorage(favorites) {
   }
 }
 
+// Retrieve ingredients from localStorage and fetch recipe
+const storedIngredients = localStorage.getItem("ingredients");
+if (storedIngredients) {
+  const parsedIngredients = JSON.parse(storedIngredients);
+  fetchRecipe(parsedIngredients);
+}
 
-
-
-
+// Save selected ingredients to localStorage (from Homepage user-input) and fetch recipe
+const userInput = selectedIngredients.join(", ");
+localStorage.setItem("ingredients", JSON.stringify(userInput));
+fetchRecipe(userInput);
 
 
 
