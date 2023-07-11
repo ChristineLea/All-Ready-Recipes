@@ -8,14 +8,11 @@ const showRecipeBtn = document.querySelector('.showRecipe');
 const favoriteRecipeBtn = document.querySelector('.favoriteRecipes')
 const recipeContainer = document.querySelector('.recipeContainer');
 
-
 // Step 3: Add API Key
-const apiKey = "8734635d4cfc4d00bb8e0e29263ce8f2";
+const apiKey = "768e4e166053486abcc4bb15e1e1c9e7";
 
 //Global Variable
 let recipeData = [];
-
-
 
 // Step 4: Function to fetch data from API
 function fetchRecipe(ingredients) {
@@ -132,7 +129,6 @@ function displayIngredientSuggestion(data) {
   
 };
 
-
 function displaySelectedIngredients(){
   const selectedIngredientContainer = document.querySelector('.selectedIngredients');
   selectedIngredientContainer.innerHTML = '';
@@ -165,8 +161,6 @@ btnEl.addEventListener('click', function() {
 inputEl.addEventListener('input', function() {
   const query = inputEl.value;
   fetchIngredientSuggestions(query);
-
-
 });
 
 //add eventlistener to input click
@@ -175,8 +169,6 @@ inputEl.addEventListener('click', function() {
   
   fetchIngredientSuggestions(query);
 });
-
-
 
 function showRecipeModal(recipeId) {
   const selectedRecipe = recipeData.find(recipe => recipe.id === recipeId);
@@ -187,9 +179,6 @@ function showRecipeModal(recipeId) {
 
     // Hide other visible elements
     recipeContainer.classList.add('hide-element');
-
-
-
 
     const likeBtn = document.createElement('button');
     likeBtn.classList.add('button', 'is-link', 'is-rounded', 'like-btn', 'right');
@@ -278,13 +267,11 @@ function showRecipeModal(recipeId) {
   
     recipeModal.appendChild(closeBtn);
 
-
   } else {
     recipeModal.style.display = 'none';
 
     // Show other elements
     recipeContainer.classList.remove('hide-element');
-  
   }
 }
 
@@ -349,17 +336,16 @@ function saveFavoriteToStorage(favorites) {
   }
 }
 
+
 // Retrieve ingredients from localStorage and fetch recipe
 const storedIngredients = localStorage.getItem("ingredients");
 if (storedIngredients) {
-  const parsedIngredients = JSON.parse(storedIngredients);
-  fetchRecipe(parsedIngredients);
+  const userInput = JSON.parse(storedIngredients);
+  fetchRecipe(userInput);
 }
 
-// Save selected ingredients to localStorage (from Homepage user-input) and fetch recipe
-const userInput = selectedIngredients.join(", ");
-localStorage.setItem("ingredients", JSON.stringify(userInput));
-fetchRecipe(userInput);
+
+
 
 
 
