@@ -37,6 +37,7 @@ function displayRecipe(data) {
     data.forEach(recipe => {
       // Create image element for recipe
       const imageElement = document.createElement('img');
+      
       imageElement.src = recipe.image;
       imageElement.alt = recipe.title;
 
@@ -194,6 +195,13 @@ function displaySelectedIngredients(){
     selectedIngredientContainer.appendChild(ingredientItem);
 
   });
+
+  if (selectedIngredients.length > 0) {
+    noRecipeMessage.textContent = `You have selected the ingredient(s). 
+    You can add multiple ingredients!`
+  } else {
+    noRecipeMessage.textContent = '';
+  }
 };
 
 // Step 2: Add an event listener to the search button
