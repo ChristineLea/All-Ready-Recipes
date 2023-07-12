@@ -12,24 +12,44 @@ function alertUser() {
 
 	$form.append($alert);
 }
+
+// function spinnerDelay() {
+// 	// let delay = 2000;
+
+// 	$spinner.hide();
+// 	let response = {
+// 		loader: $spinner.show(),
+// 	};
+// 	$("#spinner").append(response.loader);
+// }
+
 // GET request
 function ajaxGetApi() {
+	let $spinner = $("#spinner");
+
 	$.ajax({
 		method: "GET",
 		url: "https://api.calorieninjas.com/v1/nutrition?query=" + strQuery,
 		headers: { "X-Api-Key": API_KEY },
 		contentType: "application/json",
+		beforeSend: function () { // show loading spinner while getting data from server
+			$spinner.show();
+		},
 		success: function (result) {
-			// if returned data obj is empty - users input did not contain food &/or ingredients
-			const objData = result.items;
-			if (result.items.length === 0) {
-				alertUser();
-			} else {
-				// if returned obj contains data, sort & display data
-				sortObjData(objData);
-			}
+			setTimeout(function () { // hide loading spinner after 2 secs then display data
+				$spinner.hide();
+				// if returned data obj is empty - users input did not contain food &/or ingredients
+				const objData = result.items;
+				if (result.items.length === 0) {
+					alertUser();
+				} else {
+					// if returned obj contains data, sort & display data
+					sortObjData(objData);
+				}
+			}, 2000);
 		},
 		// if error - log to console
+
 		error: function ajaxError(jqXHR) {
 			console.error("Error: ", jqXHR.responseText);
 		},
@@ -106,7 +126,7 @@ SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	// Remove any <table> node elements from previous searches
 	if ($(".table-col").children()) {
 		$(".table-col").children().remove();
-}
+	}
 	// DOM traversal to get input field value
 	strQuery = SUBMIT_NUTRITION_BTN.parent()
 		.closest(".field")
@@ -118,3 +138,7 @@ SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	ajaxGetApi();
 	$("#nutrition").val("");
 });
+
+// on page load, hide the loading spinner
+$("#spinner").hide();
+
