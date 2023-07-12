@@ -7,11 +7,11 @@
 /*bulma control mixin - this is the Bulma Code that can be applied to any button on webpage* 
 happy for this to be edited!*/
 
-.bulma-control-mixin {
+/* .bulma-control-mixin {
 	@include control;
 	background: #a87fc5;
 	color: white;
-}
+} */
 
 /* CSS KEYFRAME ANIMATION FOR LOADING SPINNER */
 #spinner {
