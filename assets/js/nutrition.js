@@ -3,6 +3,12 @@ const API_KEY = "J4fyAOnwuXGtNt+PjYXPZg==g2QzfMyhXiwtkSjP";
 const SUBMIT_NUTRITION_BTN = $("#submitNutrition");
 let strQuery = "";
 
+// // on page load, hide the loading spinner / hide the nutrition info
+function init() {
+	$("#spinner").hide();
+	$("#toggle-display").hide();
+}
+
 // ON SUBMIT clear alertUser()
 function alertUser() {
 	let $form = $("form");
@@ -13,16 +19,6 @@ function alertUser() {
 	$form.append($alert);
 }
 
-// function spinnerDelay() {
-// 	// let delay = 2000;
-
-// 	$spinner.hide();
-// 	let response = {
-// 		loader: $spinner.show(),
-// 	};
-// 	$("#spinner").append(response.loader);
-// }
-
 // GET request
 function ajaxGetApi() {
 	let $spinner = $("#spinner");
@@ -32,11 +28,13 @@ function ajaxGetApi() {
 		url: "https://api.calorieninjas.com/v1/nutrition?query=" + strQuery,
 		headers: { "X-Api-Key": API_KEY },
 		contentType: "application/json",
-		beforeSend: function () { // show loading spinner while getting data from server
+		beforeSend: function () {
+			// show loading spinner while getting data from server
 			$spinner.show();
 		},
 		success: function (result) {
-			setTimeout(function () { // hide loading spinner after 2 secs then display data
+			setTimeout(function () {
+				// hide loading spinner after 2 secs then display data
 				$spinner.hide();
 				// if returned data obj is empty - users input did not contain food &/or ingredients
 				const objData = result.items;
@@ -117,12 +115,15 @@ function displayData(obj) {
 
 	$table.append($tBody);
 	$tableCol.append($table);
+
+	$("#toggle-display").show();
 }
 
 // Event to generate results
 SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	e.preventDefault();
 
+	$("#toggle-display").hide();
 	// Remove any <table> node elements from previous searches
 	if ($(".table-col").children()) {
 		$(".table-col").children().remove();
@@ -139,6 +140,5 @@ SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	$("#nutrition").val("");
 });
 
-// on page load, hide the loading spinner
-$("#spinner").hide();
+init();
 

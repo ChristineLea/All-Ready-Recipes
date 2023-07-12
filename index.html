@@ -17,17 +17,17 @@
 
 <body>
     <!-- HERO -->
-    <section class="hero is-primary is-large">
+    <section class="hero has-background-primary is-large">
         <div class="hero-head">
 
         </div>
         <div class="hero-body">
             <div class="container has-text-centered">
                 <p class="title is-1">
-                    Dinner Delights
+                    All Ready Recipes
                 </p>
                 <p class="subtitle is-3">
-                    Providing YOU with Dinner recipes guaranteed to Delight!
+                    Delivering YOU with Recipes using the ingredients you All Ready have!
                 </p>
             </div>
         </div>
@@ -43,8 +43,8 @@
                             </a>
                         </li>
                         <li>
-                            <a id="#ideas" class="navbar-item">
-                                Ideas for Dinner
+                            <a href="#ready" class="navbar-item">
+                                Find Recipes
                             </a>
                         </li>
                         <li>
@@ -67,60 +67,90 @@
     <main>
 
         <!-- MAIN SECTION -->
-        <section class="section is-medium">
+        <section class="section main-section">
+            <!-- update container size -->
             <div class="container content is-max-widescreen">
-
+                <!-- MAIN SECTION ONE -->
+                <!-- ASIDE -->
                 <div class="columns is-8">
-                    <!-- MAIN SECTION ONE -->
-                    <!-- ASIDE -->
-                    <div class="column is-two-fifths">
-                        <p class="title is-3">Ideas for Dinner</p>
-                        <p class="subtitle is-5">Easy as 1 2 3</p>
-                        <ol>
-                            <li>Please add instructions</li>
-                            <li>Please add instructions</li>
-                            <li>Please add instructions</li>
-                        </ol>
-                    </div>
-                    <!-- MAIN SECTION TWO -->
-                    <!-- FORM -->
-                    <div class="column is-three-fifths">
-                        <!-- FORM HEADING -->
-                        <p class="title is-4">Add Your Selected Ingredients</p>
-                        <p class="subtitle is-6">
-                            Seperate your ingredient enteries with a commar when entering more than
-                            one ingredient! Select up to five ingredients. 
-                        </p>
-                        <!-- function: user input form with submit button-->
-                        <!-- enter HTML URL for where data will be sent-->
-                        <form action="./assets/html/recipe.html"
-                            class="userInputForm box content is-medium notification is-primary">
-                            <!-- First Input Field -->
-                            <div class="field">
-                                <label id="q1" for="user-ingredients" class="label">What ingredients do you have
-                                    available?</label>
-                                <div class="control">
-                                    <input class="input bulma-placeholder-mixin is-primary" id="user-ingredients"
-                                        type="text" name="ingredients" placeholder="pasta" />
-                                </div>
+                    <div class="column is-full flex-center">
+                        <p class="bd-notification title is-2">Why Use All Ready Recipes?</p>
+                        <div class="columns is-mobile">
+                            <div class="column">
+                                <p class="bd-notification subtitle is-4">Search results are customised to use the
+                                    ingredients you have
+                                    on hand!
+                                </p>
+                                <p class="bd-notification subtitle is-4">Find the nutritional values for any type of food or ingredients!</p>
+                                <p class="bd-notification subtitle is-4">Customise your own cook book by saving your favourite recipes!</p>
+                                <p class="bd-notification subtitle is-4">Compliments to the Chef</p>
                             </div>
-
-                            <div class="field">
-                                <!-- add submit button - this takes the user to second HTML page with recipe results-->
-                                <div class="control">
-                                    <input class="bulma-control-mixin button is-rounded is-focused is-link"
-                                        type="submit" id="submit-button" value="Next" />
-                                </div>
-                            </div>
-                            <!-- created div element for close button when click to run HTML page 2 after displaying joke -->
-                            <div class="notification is-primary">
-                                <button id="delete-button" class="delete" style="display:none"></button>
-                                <p id="print-text"></p>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
+
             </div>
+            </div>
+        </section>
+        <!-- MAIN SECTION TWO -->
+        <!-- FORM -->
+        <section class="section">
+            <div class="container content">
+                <div class="columns">
+                    <div class="column has-background-primary bd-notification">
+                        <!-- FORM HEADING -->
+                        <p id="ready" class="bd-notification title is-3">Find Recipes</p>
+                    <div class="columns is-mobile ">
+                        <div class="column has-text-centered flex-around bd-notification">
+                            <p class="subtitle is-5">Add up to FIVE ingredients that you want to use</p>
+                            <p class="subtitle is-5">Seperate each one with a comma (,)</p>
+                            <p class="subtitle is-5">Click on Next</p>
+                        </div>
+                    </div>
+                    </div>       
+                </div>
+
+                <div class="container is-max-desktop content">
+                    <div class="columns">
+                        <div class="column mt-6 is-three-fifths is-offset-one-fifth">
+                            <!-- function: user input form with submit button-->
+                            <!-- enter HTML URL for where data will be sent-->
+                            <!-- FORM -->
+                            <form action="./assets/html/recipe.html" class="bd-notification userInputForm is-medium">
+                                <!-- First Input Field -->
+                                <div class="field">
+                                    <label id="q1" for="user-ingredients" class="label is-primary is-normal">What ingredients do
+                                        you
+                                        have
+                                        available?</label>
+                                    <div class="field has-addons">
+                                        <div class="control is-expanded">
+                                            <input class="input is-normal is-primary" id="user-ingredients" type="text"
+                                                name="ingredients" placeholder="pasta">
+                                        </div>
+                                        <div class="control">
+                                            <a class="button is-primary is-normal" id="submit-button" value="Next">Next
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="field">
+                                    <!-- add submit button - this takes the user to second HTML page with recipe results-->
+                                    <div class="control">
+                                        <div class="notification">
+                                            <button id="delete-button" class="delete" style="display:none"></button>
+                                            <p id="print-text"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- created div element for close button when click to run HTML page 2 after displaying joke -->
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -166,7 +196,7 @@
                                             class="input is-normal is-primary" required>
                                     </div>
                                     <div class="control">
-                                        <a id="submitNutrition" class="button is-primary is-normal">Show Me</a>
+                                        <a id="submitNutrition" class="button is-primary is-normal">Find</a>
                                     </div>
                                 </div>
                             </div>
@@ -191,7 +221,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div id="toggle-display" class="container">
                 <div class="columns">
                     <div class="column is-full has-text-centered mb-6 has-background-primary-light">
                         <p class="is-size-7">The nutrition facts are based on an average serving size of 100g.</p>
@@ -201,7 +231,7 @@
             </div>
         </div>
     </main>
-<!-- ADD FOOTER STYLES -->
+    <!-- ADD FOOTER STYLES -->
     <footer>
         <div class="content has-text-centered is-primary">
             <p>Dinner Delights</p>
