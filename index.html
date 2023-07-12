@@ -1,139 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- HEAD DO NOT DELETE -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1, initial-scale=1.0" />
     <title>Document</title>
+
+    <!-- Bulma stylesheet reference: -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
+<!-- BODY DO NOT DELETE -->
 
 <body>
-
-
-
-    <!-- RIGHT SIDE Form -->
-    <!-- function: user input form with submit button-->
-    <!-- enter HTML URL for where data will be sent-->
-    <form action="./assets/html/recipe.html" class="userInputForm">
-      <!-- add H2 for user input form (happy for the title to be changed)-->
-      <h2>Input your recipe preferences</h2>
-      <!-- questions for user input-->
-      <!-- select available ingrediants-->
-      <!--use Bulma input class CSS for text input vs select image(s)?-->
-      <label id="q1">
-        What ingrediants do you have available?
-        <input type="text" name="ingrediants" placeholder="pasta" /> </label
-      ><br />
-
-
-
-      <!-- select dietary requirements-->
-      <label id="q2"> Select you dietary preferences: </label><br />
-      <!-- use radio button to select intolerances-->
-      <input
-        type="radio"
-        id="gluten"
-        name="intolerances"
-        value="gluten"
-      /><label for="gluten">gluten</label><br />
-      <input type="radio" id="dairy" name="intolerances" value="dairy" /><label
-        for="dairy"
-        >dairy</label
-      ><br />
-      <input type="radio" id="egg" name="intolerances" value="egg" /><label
-        for="egg"
-        >Egg</label
-      ><br />
-      <input
-        type="radio"
-        id="peanut"
-        name="intolerances"
-        value="peanut"
-      /><label for="peanut">peanut</label><br />
-
-
-      <!-- select the type of cuisine-->
-      <label id="q3">
-        Select the maximum amount of time to prepare your recipe:
-      </label>
-      <!-- add submit button - this takes the user to second HTML page with recipe results-->
-      <input type="submit" id="submitPreferences" value="Submit" />
-    </form>
-    <!-- NUTRITIONAL -->
-
-    <!-- NUTRITIONAL INFORMATION SECTION -->
-    <div class="section">
-        <div class="container">
-            
-                <h4>Find Nutritional Information</h4>
-                <p>here is some text .....</p>
-                <p>Default quantity is 100g enter in increments of 100g / prefix a quantity before the item</p>
-                <form action="#">
-                    <!-- max # characters is 1500 -->
-                    <label for="nutrition">Type in single ingredient items</label>
-                    <input type="text" id="nutrition" name="nutrition" placeholder="type in your query here"
-                        maxlength="1500">
-                    <button id="submitNutrition">Submit</button>
-                </form>
+    <!-- HERO -->
+    <section class="hero is-primary is-large">
+        <div class="hero-head">
 
         </div>
-    </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <p class="title is-1">
+                    Dinner Delights
+                </p>
+                <p class="subtitle is-3">
+                    Providing YOU with Dinner recipes guaranteed to Delight!
+                </p>
+            </div>
+        </div>
+        <!-- NAVBAR -->
+        <div class="hero-foot">
+            <!-- NAV BAR LINKS -->
+            <nav class="navbar tabs is-boxed is-medium is-right" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <ul>
+                        <li class="is-active">
+                            <a class="navbar-item">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a id="#ideas" class="navbar-item">
+                                Ideas for Dinner
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#find-nutrition" class="navbar-item">
+                                Nutrition Information
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="navbar-item">
+                                My Saved Recipes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
 
-    <table class="table">
-        <tbody id="table-body">
-            <tr id="ingredient">
-                <th>Ingredient</th>
-            </tr>
-            <tr id="serving">
-                <th>Serving Size</th>
-            </tr>
-            <tr id="calories">
-                <th>Calories</th>
-            </tr>
-            <tr id="protein">
-                <th>Protein</th>
-            </tr>
-            <tr id="fat">
-                <th>FAT, Total</th>
-            </tr>
-            <tr id="sat-fat">
-                <th> - Saturated Fat</th>
-            </tr>
-            <tr id="carbs">
-                <th>Carbohydrate</th>
-            </tr>
-            <tr id="sugar">
-                <th> - Sugar</th>
-            </tr>
-            <tr id="fibre">
-                <th>Dietary Fibre</th>
-            </tr>
-            <tr id="sodium">
-                <th>Sodium</th>
-            </tr>
-            <tr id="potassium">
-                <th>Potassium</th>
-            </tr>
-            <tr id="cholesterol">
-                <th>Cholesterol</th>
-            </tr>
-            <!-- <tr>
-                <td>eg. average serving size per 100ginformation relating to where info sourced</td>
-            </tr> -->
-        </tbody>
-    </table>
-    <!-- FOOTER -->
-  </body>
 
-  <script>
-    
-  </script>
+    <main>
+
+        <!-- MAIN SECTION -->
+        <section class="section is-medium">
+            <div class="container content is-max-widescreen">
+
+                <div class="columns is-8">
+                    <!-- MAIN SECTION ONE -->
+                    <!-- ASIDE -->
+                    <div class="column is-two-fifths">
+                        <p class="title is-3">Ideas for Dinner</p>
+                        <p class="subtitle is-5">Easy as 1 2 3</p>
+                        <ol>
+                            <li>Please add instructions</li>
+                            <li>Please add instructions</li>
+                            <li>Please add instructions</li>
+                        </ol>
+                    </div>
+                    <!-- MAIN SECTION TWO -->
+                    <!-- FORM -->
+                    <div class="column is-three-fifths">
+                        <!-- FORM HEADING -->
+                        <p class="title is-4">Add Your Selected Ingredients</p>
+                        <p class="subtitle is-6">
+                            Seperate your ingredient enteries with a commar when entering more than
+                            one ingredient! Select up to five ingredients. 
+                        </p>
+                        <!-- function: user input form with submit button-->
+                        <!-- enter HTML URL for where data will be sent-->
+                        <form action="./assets/html/recipe.html"
+                            class="userInputForm box content is-medium notification is-primary">
+                            <!-- First Input Field -->
+                            <div class="field">
+                                <label id="q1" for="user-ingredients" class="label">What ingredients do you have
+                                    available?</label>
+                                <div class="control">
+                                    <input class="input bulma-placeholder-mixin is-primary" id="user-ingredients"
+                                        type="text" name="ingredients" placeholder="pasta" />
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <!-- add submit button - this takes the user to second HTML page with recipe results-->
+                                <div class="control">
+                                    <input class="bulma-control-mixin button is-rounded is-focused is-link"
+                                        type="submit" id="submit-button" value="Next" />
+                                </div>
+                            </div>
+                            <!-- created div element for close button when click to run HTML page 2 after displaying joke -->
+                            <div class="notification is-primary">
+                                <button id="delete-button" class="delete" style="display:none"></button>
+                                <p id="print-text"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+
+        <!-- NUTRITIONAL INFORMATION SECTION -->
+        <!-- Section Heading -->
+        <div class="section">
+            <div class="container content">
+                <div class="columns">
+
+                    <div class="column is-12 has-background-primary-light">
+                        <p class="title is-3 text-color">Find Nutritional Information</p>
+                        <p class="subtitle is-5 text-color">Checking nutritional information can help us to make
+                            healthier
+                            choices
+                        </p>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column mt-6 pt-6 has-text-centered">
+                        <p>Our advanced and easy to use nutrition tool can be used to search nutritional information of
+                            a
+                            <span>single ingredient</span>, <span>multiple ingredients</span>, and even a
+                            <span>meal</span>
+                            or
+                            <span>recipe</span>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container is-max-desktop content">
+                <div class="columns">
+                    <div class="column is-three-fifths is-offset-one-fifth">
+                        <!-- FORM -->
+                        <form action="#" id="find-nutrition">
+                            <div class="field">
+                                <label for="nutrition" class="label is-normal">I want to find out about:</label>
+                                <div class="field has-addons">
+                                    <div class="control is-expanded">
+                                        <!-- max # characters is 1500 -->
+                                        <input type="text" id="nutrition" name="nutrition"
+                                            placeholder="enter food/s here" maxlength="1500"
+                                            class="input is-normal is-primary" required>
+                                    </div>
+                                    <div class="control">
+                                        <a id="submitNutrition" class="button is-primary is-normal">Show Me</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- LOADING SPINNER KEYFRAME -->
+                <div class="columns">
+                    <div class="column is-half is-offset-one-quarter">
+                        <div id="spinner">
+                            <p class="subtitle is-5">Loading nutrition ... </p>
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- DISPLAY NUTRITION -->
+                <div class="columns is-3">
+                    <div class="column is-full">
+                        <div class="table-col table is-bordered">
+                            <!-- JavaScript will generate table/s to display results -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-full has-text-centered mb-6 has-background-primary-light">
+                        <p class="is-size-7">The nutrition facts are based on an average serving size of 100g.</p>
+                        <p class="is-size-7">Nutritional information provided is to be used as a guide only.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<!-- ADD FOOTER STYLES -->
+    <footer>
+        <div class="content has-text-centered is-primary">
+            <p>Dinner Delights</p>
+        </div>
+    </footer>
+
+</body>
+
+<!-- SCRIPTS DO NOT DELETE Christine is using jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script src="./assets/js/userform.js"></script>
+
+
+
+<script src="./assets/js/nutrition.js"></script>
+
+
+
 </html>
-
-

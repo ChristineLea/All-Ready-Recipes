@@ -5,10 +5,12 @@ const recipeList = document.querySelector('.recipeList');
 const recipeModal = document.querySelector('.recipeModal');
 const noRecipeMessage = document.querySelector('.noRecipeMessage');
 const showRecipeBtn = document.querySelector('.showRecipe');
+
 const favoriteRecipeBtn = document.querySelector('.favoriteRecipes');
 const recipeContainer = document.querySelector('.recipeContainer');
 const includeSelectedCheckbox = document.querySelector('.includeOnly');
 const selectYourIngredient = document.querySelector('.selectYourIngredient');
+
 
 // Step 3: Add API Key
 const apiKey = "8734635d4cfc4d00bb8e0e29263ce8f2";
@@ -18,8 +20,10 @@ let recipeData = [];
 let selectedIngredients = [];
 
 // Step 4: Function to fetch data from API
+
 function fetchRecipe(ingredients, ranking, ignorePantry) {
   const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&ranking=${ranking}&ingnorePantry=${ignorePantry}&apiKey=${apiKey}&number=9`;
+
 
   // GET request using Fetch
   fetch(url)
@@ -127,9 +131,11 @@ function displayIngredientSuggestion(data) {
     });
     suggestionsList.appendChild(suggestionItem);
   });
+
 }
 
 function displaySelectedIngredients() {
+
   const selectedIngredientContainer = document.querySelector('.selectedIngredients');
   selectedIngredientContainer.innerHTML = '';
 
@@ -319,10 +325,12 @@ function getFavoriteFromStorage() {
 // Function to save to localStorage
 function saveFavoriteToStorage(favorites) {
   localStorage.setItem('favorites', JSON.stringify(favorites));
+
 }
 
 // Add event listener to the favoriteRecipes element
 favoriteRecipeBtn.addEventListener('click', function() {
+
   displayFavoriteRecipes();
 });
 
@@ -358,9 +366,11 @@ function displayFavoriteRecipes() {
   }
 }
 
+
 // Retrieve ingredients from localStorage and fetch recipe
 // const storedIngredients = localStorage.getItem("ingredients");
 // if (storedIngredients) {
 //   const userInput = JSON.parse(storedIngredients);
 //   fetchRecipe(userInput);
 // }
+
