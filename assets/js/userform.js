@@ -28,7 +28,7 @@ apiKey = "522e16255e6e4508a3f423199e9dc76f";
 
 //fetch random joke API tagged for food jokes and 10 jokes returned:
 function fetchAPI() {
-  const queryURL = `https://api.humorapi.com/jokes/search?include-tags=food&number=10&api-key=${apiKey}`;
+  const queryURL = `https://api.humorapi.com/jokes/search?include-tags=food,clean&number=10&exclude-tags=sexual,animal,relationship,dark,sexist,racist,NSFW,jewish,insults,deepthougths,christmas,religious,alcohol&api-key=${apiKey}`;
 
   console.log(queryURL);
 
