@@ -89,18 +89,18 @@
                         <p class="title is-4">Add Your Selected Ingredients</p>
                         <p class="subtitle is-6">
                             Seperate your ingredient enteries with a commar when entering more than
-                            one ingredient!
+                            one ingredient! Select up to five ingredients. 
                         </p>
                         <!-- function: user input form with submit button-->
                         <!-- enter HTML URL for where data will be sent-->
                         <form action="./assets/html/recipe.html"
-                            class="userInputForm box content is-medium notification is-info">
+                            class="userInputForm box content is-medium notification is-primary">
                             <!-- First Input Field -->
                             <div class="field">
                                 <label id="q1" for="user-ingredients" class="label">What ingredients do you have
                                     available?</label>
                                 <div class="control">
-                                    <input class="input bulma-placeholder-mixin is-success" id="user-ingredients"
+                                    <input class="input bulma-placeholder-mixin is-primary" id="user-ingredients"
                                         type="text" name="ingredients" placeholder="pasta" />
                                 </div>
                             </div>
@@ -111,6 +111,11 @@
                                     <input class="bulma-control-mixin button is-rounded is-focused is-link"
                                         type="submit" id="submit-button" value="Next" />
                                 </div>
+                            </div>
+                            <!-- created div element for close button when click to run HTML page 2 after displaying joke -->
+                            <div class="notification is-primary">
+                                <button id="delete-button" class="delete" style="display:none"></button>
+                                <p id="print-text"></p>
                             </div>
                         </form>
                     </div>
@@ -200,6 +205,7 @@
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script src="./assets/js/userform.js"></script>
+
 <script src="./assets/js/nutrition.js"></script>
 
 </html>
