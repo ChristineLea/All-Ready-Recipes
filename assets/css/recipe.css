@@ -91,7 +91,7 @@ span {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: black;
+  background-color: white;
   padding: 20px;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -103,9 +103,24 @@ span {
   overflow-y: auto;
   margin-top: 100px;
   border-radius: 50px;
-  color: white;
+  color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  line-height: px;
 }
 
+.recipeModal img {
+  /* Align images to the right */
+  justify-self: end;
+}
+
+.recipeModal h2,
+.recipeModal div {
+  /* Align text to the left */
+  text-align: left;
+  line-height: 30px;
+}
 
 .like-btn {
   position: absolute;
