@@ -58,3 +58,38 @@ happy for this to be edited!*/
 footer {
 	background-color: #00d1b2;
 }
+
+#q1 {
+	padding: 1.25rem 0 0;
+}
+
+.flex-center {
+	    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	text-align: center;
+}
+.flex-end {
+	    display: flex;
+    align-items: flex-end;
+}
+.flex-end ol {
+	margin: 0;
+}
+.flex-end ol li {
+	list-style-type: none;
+	text-align: center;
+}
+.main-section {
+	margin: 3rem 0 0;
+}
+
+
+.flex-around {
+	display: flex;
+	justify-content:space-around;
+}
+.notification {
+	background-color:#fff;
+}

@@ -21,7 +21,7 @@
 //   //display data funtion - call here?
 // })
 
-apiKey = "16b91a08af5b4fe2b3b56ce186f16689";
+const apiKey = "16b91a08af5b4fe2b3b56ce186f16689";
 
 var submitButton = document.getElementById("submit-button");
 
@@ -32,7 +32,7 @@ submitButton.addEventListener("click", function (event) {
 });
 
 function fetchAPI() {
-  const queryURL = `https://api.humorapi.com/jokes/search?keywords=food&api-key${apikey}`;
+  const queryURL = `https://api.humorapi.com/jokes/search?keywords=food&api-key${apiKey}`;
   //https://api.humorapi.com/jokes/search?keywords=food&max-length=30&api-key=87051f333fb249f5b0e68c48284fc5f
   //https://api.humorapi.com/jokes/search?keywords=food&api-key=16b91a08af5b4fe2b3b56ce186f16689
   console.log(queryURL);
