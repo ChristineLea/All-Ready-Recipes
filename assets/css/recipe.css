@@ -6,6 +6,12 @@
 .navbar {
   display:flex;
   justify-content: space-between;
+  cursor: pointer;
+
+}
+
+.noRecipeMessage {
+  color: blue;
 }
 
 .input-container {
@@ -81,17 +87,20 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: fff;
+  background-color:black;
   padding: 50px;
   border-radius: 5px;
   z-index: 1;
   height: 1000px;
   overflow-y: auto;
   padding-bottom: 400px;
-  margin-top: 200px;
-  opacity: ;
+  margin-top: 300px;
+  opacity:0px;
   border-radius: 50px;
-  /* TODO: I want white background with tranparancy */
+  text-align: center;
+  color: white;
+ 
+  
   
 }
 

@@ -7,16 +7,20 @@ const noRecipeMessage = document.querySelector('.noRecipeMessage');
 const showRecipeBtn = document.querySelector('.showRecipe');
 const favoriteRecipeBtn = document.querySelector('.favoriteRecipes')
 const recipeContainer = document.querySelector('.recipeContainer');
+const includeSelectedCheckbox = document.querySelector('.includeOnly');
+const selectYourIngredient = document.querySelector('.selectYourIngredient');
+
 
 // Step 3: Add API Key
-const apiKey = "768e4e166053486abcc4bb15e1e1c9e7";
+const apiKey = "8734635d4cfc4d00bb8e0e29263ce8f2";
 
 //Global Variable
 let recipeData = [];
+let selectedIngredients = [];
 
 // Step 4: Function to fetch data from API
-function fetchRecipe(ingredients) {
-  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=9`;
+function fetchRecipe(ingredients, ranking) {
+  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&ranking=${ranking}&apiKey=${apiKey}&number=9`;
 
   // GET request using Fetch
   fetch(url)
@@ -85,8 +89,7 @@ function fetchIngredientSuggestions(query) {
       displayIngredientSuggestion(data);
     });
 };
-//empty array for Unser input selection
-let selectedIngredients = [];
+
 
 // Display Auto Completion 
 function displayIngredientSuggestion(data) {
@@ -141,20 +144,48 @@ function displaySelectedIngredients(){
 
   });
 
-  if (selectedIngredients.length > 0) {
-    noRecipeMessage.textContent = `You have selected the above ingredient(s). 
-    Add More!`
+  const includeSelectedCheckbox = document.querySelector('.includeOnly');
+
+  if (selectedIngredients.length === 1) {
+    selectYourIngredient.textContent = 'You have selected the below ingredient. Add more ingredients!';
+    noRecipeMessage.textContent = '';
+  } else if (selectedIngredients.length > 1 && selectedIngredients.length < 3) {
+    selectYourIngredient.textContent = 'Add more ingredients to refine your search for recipes.';
+    noRecipeMessage.textContent = '';
+    selectYourIngredient.style.color = 'darkblue';
   } else {
+    selectYourIngredient.textContent = 'Check "Recipes based on given Ingredients" for meal recipes based on your prefered  ingredients.';
+    selectYourIngredient.style.color = 'darkgreen';
     noRecipeMessage.textContent = '';
   }
+
 };
+
 
 // Step 2: Add an event listener to the search button
 btnEl.addEventListener('click', function() {
   const userInput = selectedIngredients.join(', ');
-  fetchRecipe(userInput);
+  const includeSelectedOnly = includeSelectedCheckbox.checked;
+  let ranking = 1; // Default ranking for maximizing used ingredients
 
+  if (includeSelectedOnly) {
+    ranking = 2; // Set ranking to minimize missing ingredients
+  }
+
+  fetchRecipe(userInput, ranking);
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 //step 1 autocompletion
 //add eventlistener to Input typing
@@ -338,11 +369,11 @@ function saveFavoriteToStorage(favorites) {
 
 
 // Retrieve ingredients from localStorage and fetch recipe
-const storedIngredients = localStorage.getItem("ingredients");
-if (storedIngredients) {
-  const userInput = JSON.parse(storedIngredients);
-  fetchRecipe(userInput);
-}
+// const storedIngredients = localStorage.getItem("ingredients");
+// if (storedIngredients) {
+//   const userInput = JSON.parse(storedIngredients);
+//   fetchRecipe(userInput);
+// }
 
 
 
