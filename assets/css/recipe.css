@@ -1,3 +1,31 @@
+.title, 
+.subtitle {
+  text-align: center;
+}
+
+.navbar {
+  display:flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.selectYourIngredient {
+  text-align: left;
+  margin-left: 50px;
+}
+
+span {
+  margin-left: 30px;
+}
+
+.noRecipeMessage {
+  color: blue;
+}
+
+.input-container {
+  position: relative;
+}
+
 .suggestionsContainer {
   position: relative;
 }
@@ -22,17 +50,123 @@
   background-color: #f2f2f2;
 }
 
+.hide-element {
+  display: none;
+}
+
+.ignorePantryMessage {
+  color: red;
+  font-size: 14px;
+  margin-left: 100px;
+}
+
+.card {
+  padding: 0px;
+}
+
+.recipeList .card .title {
+  font-size: 10px;
+}
+
+.content {
+  padding: 0px;
+}
+
+.card .button {
+  align-items: center !important;
+  font-size: 12px;
+  padding: 10px;
+  margin: 0px;
+}
+
+.recipe-title {
+  font-size: 13px !important;
+  text-align: center !important;
+  margin-top: 2px !important;
+}
+
 .recipeModal {
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  background-color: black;
+  padding: 50px;
   border-radius: 5px;
-  z-index: 9;
- 
+  z-index: 1;
+  height: 1000px;
+  overflow-y: auto;
+  padding-bottom: 400px;
+  margin-top: 300px;
+  opacity: 0px;
+  border-radius: 50px;
+  text-align: center;
+  color: white;
+}
 
+.like-btn {
+  position: absolute;
+  margin-top: -10px;
+  font-weight: bolder;
+  left: 5px;
+  padding: 5px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+.like-btn {
+  right: 10px;
+}
+
+.close-btn {
+  display: block;
+  margin: 0 auto;
+  font-weight: bold;
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 50px;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+/* Custom styling for scroll bar */
+.recipeModal::-webkit-scrollbar {
+  width: 10px; /* Width of the scroll bar */
+  background-color: white; /* Background color of the scroll bar */
+}
+
+.recipeModal::-webkit-scrollbar-thumb {
+  background-color: #666; 
+  border-radius: 5px; 
+}
+
+.recipeModal::-webkit-scrollbar-thumb:hover {
+  background-color: black; /* Color of the scroll bar thumb on hover */
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 767px) {
+  .recipeModal {
+    width: 90%;
+    max-width: 500px;
+  }
+}
+
+/* Media query for medium and large screens */
+@media screen and (min-width: 768px) {
+  .recipeModal {
+    width: 60%;
+    max-width: 800px;
+  }
 }
