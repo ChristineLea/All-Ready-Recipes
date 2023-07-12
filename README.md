@@ -1,4 +1,4 @@
-# Dinner-Delights Group Project
+# All Ready Recipes Group Project
 
 ## Description - user form input feature
 
