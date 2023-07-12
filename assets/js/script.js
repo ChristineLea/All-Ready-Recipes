@@ -148,7 +148,7 @@ function displaySelectedIngredients() {
     noRecipeMessage.textContent = '';
     selectYourIngredient.style.color = 'darkblue';
   } else {
-    selectYourIngredient.textContent = 'Check to minimize ingredients other than those selected.';
+    selectYourIngredient.textContent = '\u2713 the box to get recipe based on Selected Ingredients';
     selectYourIngredient.style.color = 'darkgreen';
     noRecipeMessage.textContent = '';
   }
