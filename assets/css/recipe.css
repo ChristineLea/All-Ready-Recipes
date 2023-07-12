@@ -93,10 +93,13 @@ span {
   transform: translate(-50%, -50%);
   background-color: black;
   padding: 20px;
+  padding-top: 50px;
+  padding-bottom: 500px;
   border-radius: 5px;
   z-index: 9999;
+  height: 1000px;
   overflow-y: auto;
-  margin-top: 50px;
+  margin-top: 100px;
   border-radius: 50px;
   text-align: center;
   color: white;
