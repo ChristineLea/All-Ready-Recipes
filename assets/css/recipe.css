@@ -93,57 +93,60 @@ span {
   transform: translate(-50%, -50%);
   background-color: black;
   padding: 20px;
-  padding-top: 50px;
-  padding-bottom: 500px;
+  padding-top: 80px;
+  padding-bottom: 20px;
   border-radius: 5px;
   z-index: 9999;
-  height: 1000px;
+  max-height: 80vh;
+  height: auto;
   overflow-y: auto;
   margin-top: 100px;
   border-radius: 50px;
   text-align: center;
   color: white;
+  
 }
 
 .like-btn {
   position: absolute;
   margin-top: -10px;
+  margin-right: -10px;
   font-weight: bolder;
+  background-color: #0e4b42;
   left: 5px;
-  padding: 5px;
-  background-color: #f44336;
+  padding: -2px !important;
   color: #fff;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-}
-
-.like-btn {
-  right: 10px;
+  top: 10px;
+  font-size: 15px;
 }
 
 .close-btn {
-  display: block;
-  margin: 0 auto;
-  font-weight: bold;
-  padding: 5px 10px;
-  background-color: #f44336;
+  position: absolute;
+  margin-top: -10px;
+  margin-right: 7px;
+  font-weight: bolder;
+  right: 5px;
+  padding: 5px;
   color: #fff;
+  background-color:#0e4b42;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  text-align: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  margin-top: 50px;
-  font-weight: bolder;
-  font-size: larger;
+  top: 10px;
+  font-size: 15px;
 }
+
+.close-btn:hover {
+  background-color: darkRed;
+}
+
 
 /* Custom styling for scroll bar */
 .recipeModal::-webkit-scrollbar {
-  width: 10px; /* Width of the scroll bar */
-  background-color: white; /* Background color of the scroll bar */
+  width: 10px; 
+  background-color: white; 
 }
 
 .recipeModal::-webkit-scrollbar-thumb {
@@ -152,21 +155,24 @@ span {
 }
 
 .recipeModal::-webkit-scrollbar-thumb:hover {
-  background-color: black; /* Color of the scroll bar thumb on hover */
-}
+  background-color: black; 
 
 /* Media query for small screens */
 @media screen and (max-width: 767px) {
   .recipeModal {
-    width: 90%;
-    max-width: 500px;
+    width: 95%;
+    margin:auto;
+    align-items: center;
+    margin-top: 20px;
+    left: 100px;
+  
   }
 }
 
 /* Media query for medium and large screens */
 @media screen and (min-width: 768px) {
   .recipeModal {
-    width: 60%;
+    width: 95%;
     max-width: 800px;
   }
 }

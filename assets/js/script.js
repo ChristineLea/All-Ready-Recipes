@@ -202,8 +202,7 @@ function showRecipeModal(recipeId) {
     recipeModal.style.display = 'block';
     recipeModal.innerHTML = '';
 
-    // Hide other visible elements
-    recipeContainer.classList.add('hide-element');
+
 
     const likeBtn = document.createElement('button');
     likeBtn.classList.add('button', 'is-link', 'is-rounded', 'like-btn', 'right');
@@ -281,7 +280,7 @@ function showRecipeModal(recipeId) {
 
     // Create close button
     const closeBtn = document.createElement('button');
-    closeBtn.textContent = 'Close Recipe Details';
+    closeBtn.textContent = 'Close';
     closeBtn.classList.add('close-btn');
     closeBtn.addEventListener('click', function() {
       recipeModal.style.display = 'none';
@@ -354,7 +353,7 @@ function displayFavoriteRecipes() {
       recipeList.appendChild(recipeElement);
     });
   } else {
-    noRecipeMessage.textContent = 'No favorite recipes found.';
+    noRecipeMessage.textContent = 'No favorite recipes found.You have not like any Recipe yet.';
   }
 }
 
