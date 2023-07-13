@@ -89,7 +89,9 @@ footer {
 .flex-around {
 	display: flex;
 	justify-content:space-around;
+	flex-wrap: wrap;
 }
 .notification {
 	background-color:#fff;
+	color:rgb(74, 74, 74);
 }
