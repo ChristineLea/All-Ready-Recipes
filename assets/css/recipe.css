@@ -175,7 +175,8 @@ span {
 /* Media query for small screens */
 @media screen and (max-width: 767px) {
   .recipeModal {
-    width: 95vh;
+    display: none;
+    width: 50vh;
     margin: auto;
     align-items: center;
     margin-top: 10px;
@@ -186,7 +187,8 @@ span {
 /* Media query for medium screens */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .recipeModal {
-    width: 95vh;
+    display: none;
+    width: 60vh;
     margin: auto;
     align-items: center;
     margin-top: 20px;
