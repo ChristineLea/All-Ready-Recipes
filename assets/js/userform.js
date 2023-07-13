@@ -23,7 +23,7 @@ submitButton.addEventListener("click", function (event) {
 });
 
 //apikey for random joke generator
-apiKey = "522e16255e6e4508a3f423199e9dc76f";
+apiKey = "1196ce4f263e4a13b46b576af1f5bb9b";
 //previous ApiKey (use when quota reached)  16b91a08af5b4fe2b3b56ce186f16689
 
 //fetch random joke API tagged for food jokes and 10 jokes returned:
