@@ -234,11 +234,11 @@ function showRecipeModal(recipeId) {
 
     const likeBtn = document.createElement('button');
     likeBtn.classList.add('button', 'is-link', 'is-rounded', 'like-btn', 'right');
-    likeBtn.textContent = 'Like';
+    likeBtn.textContent = 'Save';
     likeBtn.addEventListener('click', function() {
       // Save selected recipe to localStorage 
       addToFavorites(selectedRecipe);
-      likeBtn.textContent = 'Liked';
+      likeBtn.textContent = 'Saved';
       likeBtn.style.backgroundColor = 'green';
     });
 
