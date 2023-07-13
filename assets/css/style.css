@@ -32,26 +32,26 @@ happy for this to be edited!*/
 	animation: spin 1.5s linear infinite;
 }
 .spinner::after {
-  content: "";
-  background-color: white;
-  height: 80%;
-  width: 80%;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: inset 0px 0px 110px -70px black;
-  border: 4px solid white;
+	content: "";
+	background-color: white;
+	height: 80%;
+	width: 80%;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: inset 0px 0px 110px -70px black;
+	border: 4px solid white;
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 /* FOOTER */
@@ -64,15 +64,15 @@ footer {
 }
 
 .flex-center {
-	    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	text-align: center;
 }
 .flex-end {
-	    display: flex;
-    align-items: flex-end;
+	display: flex;
+	align-items: flex-end;
 }
 .flex-end ol {
 	margin: 0;
@@ -85,13 +85,30 @@ footer {
 	margin: 3rem 0 0;
 }
 
-
 .flex-around {
 	display: flex;
-	justify-content:space-around;
+	justify-content: space-around;
 	flex-wrap: wrap;
 }
 .notification {
-	background-color:#fff;
-	color:rgb(74, 74, 74);
+	background-color: #fff;
+	color: rgb(74, 74, 74);
+}
+/* @media */
+@media only screen and (max-width: 1023px) {
+	.table-col {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.table-col {
+		grid-template-columns: 1fr;
+		max-width: 50%;
+		margin: 0 auto;
+	}
+	.spinner {
+	width: 70px;
+	height: 70px;
+}
 }
