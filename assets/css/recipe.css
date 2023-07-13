@@ -1,10 +1,10 @@
-.title, 
+.title,
 .subtitle {
   text-align: center;
 }
 
 .navbar {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   cursor: pointer;
 }
@@ -91,82 +91,106 @@ span {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: black;
-  padding: 50px;
+  background-color: white;
+  padding: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   border-radius: 5px;
-  z-index: 1;
-  height: 1000px;
+  z-index: 9999;
+  max-height: 80vh;
+  max-width: auto;
+  height: auto;
   overflow-y: auto;
-  padding-bottom: 400px;
-  margin-top: 300px;
-  opacity: 0px;
+  margin-top: 100px;
   border-radius: 50px;
-  text-align: center;
-  color: white;
+  color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  line-height: px;
+}
+
+.recipeModal img {
+  /* Align images to the right */
+  justify-self: end;
+}
+
+.recipeModal h2,
+.recipeModal div {
+  /* Align text to the left */
+  text-align: left;
+  line-height: 30px;
 }
 
 .like-btn {
   position: absolute;
   margin-top: -10px;
+  margin-right: -10px;
   font-weight: bolder;
+  background-color: #0e4b42;
   left: 5px;
-  padding: 5px;
-  background-color: #f44336;
+  padding: -2px !important;
   color: #fff;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-}
-
-.like-btn {
-  right: 10px;
+  top: 10px;
+  font-size: 15px;
 }
 
 .close-btn {
-  display: block;
-  margin: 0 auto;
-  font-weight: bold;
-  padding: 5px 10px;
-  background-color: #f44336;
+  position: absolute;
+  margin-top: -10px;
+  margin-right: 7px;
+  font-weight: bolder;
+  right: 5px;
+  padding: 5px;
   color: #fff;
+  background-color: #0e4b42;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  text-align: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  margin-top: 50px;
-  font-weight: bolder;
-  font-size: larger;
+  top: 10px;
+  font-size: 15px;
+}
+
+.close-btn:hover {
+  background-color: darkRed;
 }
 
 /* Custom styling for scroll bar */
 .recipeModal::-webkit-scrollbar {
-  width: 10px; /* Width of the scroll bar */
-  background-color: white; /* Background color of the scroll bar */
+  width: 10px;
+  background-color: white;
 }
 
 .recipeModal::-webkit-scrollbar-thumb {
-  background-color: #666; 
-  border-radius: 5px; 
+  background-color: #666;
+  border-radius: 5px;
 }
 
 .recipeModal::-webkit-scrollbar-thumb:hover {
-  background-color: black; /* Color of the scroll bar thumb on hover */
+  background-color: black;
 }
 
 /* Media query for small screens */
 @media screen and (max-width: 767px) {
   .recipeModal {
-    width: 90%;
-    max-width: 500px;
+    width: 95vh;
+    margin: auto;
+    align-items: center;
+    margin-top: 10px;
+   font-size: small;
   }
 }
 
-/* Media query for medium and large screens */
-@media screen and (min-width: 768px) {
+/* Media query for medium screens */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .recipeModal {
-    width: 60%;
-    max-width: 800px;
+    width: 95vh;
+    margin: auto;
+    align-items: center;
+    margin-top: 20px;
+   font-size:medium;
   }
 }
+

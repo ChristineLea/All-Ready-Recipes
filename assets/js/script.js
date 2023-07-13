@@ -5,12 +5,10 @@ const recipeList = document.querySelector('.recipeList');
 const recipeModal = document.querySelector('.recipeModal');
 const noRecipeMessage = document.querySelector('.noRecipeMessage');
 const showRecipeBtn = document.querySelector('.showRecipe');
-
 const favoriteRecipeBtn = document.querySelector('.favoriteRecipes');
 const recipeContainer = document.querySelector('.recipeContainer');
 const includeSelectedCheckbox = document.querySelector('.includeOnly');
 const selectYourIngredient = document.querySelector('.selectYourIngredient');
-
 
 // Step 3: Add API Key
 const apiKey = "8734635d4cfc4d00bb8e0e29263ce8f2";
@@ -20,10 +18,8 @@ let recipeData = [];
 let selectedIngredients = [];
 
 // Step 4: Function to fetch data from API
-
 function fetchRecipe(ingredients, ranking, ignorePantry) {
   const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&ranking=${ranking}&ingnorePantry=${ignorePantry}&apiKey=${apiKey}&number=9`;
-
 
   // GET request using Fetch
   fetch(url)
@@ -34,7 +30,7 @@ function fetchRecipe(ingredients, ranking, ignorePantry) {
     });
 }
 
-// Step 5: render Recipe
+// Step 5: render Recipe with Instructions
 function displayRecipe(data) {
   if (data.length > 0) {
     recipeList.innerHTML = '';
@@ -81,6 +77,36 @@ function displayRecipe(data) {
     // Display message if no recipe found
     noRecipeMessage.textContent = 'No recipes found.';
   }
+}
+
+// Step 6: Fetch recipe instructions for a given recipe ID
+function fetchRecipeInstructions(recipeId) {
+  const url = `https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions?apiKey=${apiKey}`;
+
+  return fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.length > 0) {
+        return data[0].steps;
+      }
+      return [];
+    });
+}
+
+// Step 7: Display recipe instructions in the modal
+function displayRecipeInstructions(steps) {
+  const instructionsList = document.createElement('ul');
+  steps.forEach(step => {
+    const instructionItem = document.createElement('li');
+    instructionItem.textContent = step.step;
+    instructionsList.appendChild(instructionItem);
+  });
+
+  const recipeInstructions = document.createElement('div');
+  recipeInstructions.classList.add('recipe-instructions');
+  recipeInstructions.appendChild(instructionsList);
+
+  recipeModal.appendChild(recipeInstructions);
 }
 
 function fetchIngredientSuggestions(query) {
@@ -131,11 +157,9 @@ function displayIngredientSuggestion(data) {
     });
     suggestionsList.appendChild(suggestionItem);
   });
-
 }
 
 function displaySelectedIngredients() {
-
   const selectedIngredientContainer = document.querySelector('.selectedIngredients');
   selectedIngredientContainer.innerHTML = '';
 
@@ -208,16 +232,13 @@ function showRecipeModal(recipeId) {
     recipeModal.style.display = 'block';
     recipeModal.innerHTML = '';
 
-    // Hide other visible elements
-    recipeContainer.classList.add('hide-element');
-
     const likeBtn = document.createElement('button');
     likeBtn.classList.add('button', 'is-link', 'is-rounded', 'like-btn', 'right');
-    likeBtn.textContent = 'Like';
+    likeBtn.textContent = 'Save';
     likeBtn.addEventListener('click', function() {
       // Save selected recipe to localStorage 
       addToFavorites(selectedRecipe);
-      likeBtn.textContent = 'Liked';
+      likeBtn.textContent = 'Saved';
       likeBtn.style.backgroundColor = 'green';
     });
 
@@ -285,9 +306,18 @@ function showRecipeModal(recipeId) {
     });
     recipeModal.appendChild(recipeUsedIngredients);
 
+    // Fetch and display recipe instructions
+    fetchRecipeInstructions(recipeId)
+      .then(steps => {
+        displayRecipeInstructions(steps);
+      })
+      .catch(error => {
+        console.log('Error fetching recipe instructions:', error);
+      });
+
     // Create close button
     const closeBtn = document.createElement('button');
-    closeBtn.textContent = 'Close Recipe Details';
+    closeBtn.textContent = 'Close';
     closeBtn.classList.add('close-btn');
     closeBtn.addEventListener('click', function() {
       recipeModal.style.display = 'none';
@@ -325,12 +355,10 @@ function getFavoriteFromStorage() {
 // Function to save to localStorage
 function saveFavoriteToStorage(favorites) {
   localStorage.setItem('favorites', JSON.stringify(favorites));
-
 }
 
 // Add event listener to the favoriteRecipes element
 favoriteRecipeBtn.addEventListener('click', function() {
-
   displayFavoriteRecipes();
 });
 
@@ -362,15 +390,12 @@ function displayFavoriteRecipes() {
       recipeList.appendChild(recipeElement);
     });
   } else {
-    noRecipeMessage.textContent = 'No favorite recipes found.';
+    noRecipeMessage.textContent = 'No favorite recipes found. You have not liked any recipes yet.';
   }
 }
-
-
 // Retrieve ingredients from localStorage and fetch recipe
-// const storedIngredients = localStorage.getItem("ingredients");
-// if (storedIngredients) {
-//   const userInput = JSON.parse(storedIngredients);
-//   fetchRecipe(userInput);
-// }
-
+const storedIngredients = localStorage.getItem("ingredients");
+if (storedIngredients) {
+  const userInput = JSON.parse(storedIngredients);
+  fetchRecipe(userInput);
+}
