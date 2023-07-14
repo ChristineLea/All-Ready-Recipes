@@ -1,3 +1,25 @@
+/* Centre text in MAIN SECTION ONE */
+.text-center {
+	text-align: center;
+}
+
+/* Find Recipes Section */
+#q1 {
+	padding: 1.25rem 0 0;
+}
+.flex-around {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+/* Joke Styles */
+.notification {
+	background-color: #fff;
+	color: rgb(74, 74, 74);
+}
+
+/* Nutrition Information */
 .table-col {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -11,7 +33,6 @@
 	align-items: center;
 	height: 50vh;
 }
-
 .spinner {
 	width: 100px;
 	height: 100px;
@@ -50,24 +71,6 @@ footer {
 	background-color: #00d1b2;
 }
 
-#q1 {
-	padding: 1.25rem 0 0;
-}
-/* Centre text in MAIN SECTION ONE */
-.text-center {
-	text-align: center;
-}
-
-
-.flex-around {
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
-}
-.notification {
-	background-color: #fff;
-	color: rgb(74, 74, 74);
-}
 /* @media */
 @media only screen and (max-width: 1023px) {
 	.table-col {
