@@ -4,15 +4,6 @@
 	grid-gap: 2rem;
 }
 
-/*bulma control mixin - this is the Bulma Code that can be applied to any button on webpage* 
-happy for this to be edited!*/
-
-/* .bulma-control-mixin {
-	@include control;
-	background: #a87fc5;
-	color: white;
-} */
-
 /* CSS KEYFRAME ANIMATION FOR LOADING SPINNER */
 #spinner {
 	display: flex;
@@ -62,28 +53,11 @@ footer {
 #q1 {
 	padding: 1.25rem 0 0;
 }
+/* Centre text in MAIN SECTION ONE */
+.text-center {
+	text-align: center;
+}
 
-.flex-center {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
-}
-.flex-end {
-	display: flex;
-	align-items: flex-end;
-}
-.flex-end ol {
-	margin: 0;
-}
-.flex-end ol li {
-	list-style-type: none;
-	text-align: center;
-}
-.main-section {
-	margin: 3rem 0 0;
-}
 
 .flex-around {
 	display: flex;
