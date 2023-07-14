@@ -1,17 +1,30 @@
+/* Centre text in MAIN SECTION ONE */
+.text-center {
+	text-align: center;
+}
+
+/* Find Recipes Section */
+#q1 {
+	padding: 1.25rem 0 0;
+}
+.flex-around {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+/* Joke Styles */
+.notification {
+	background-color: #fff;
+	color: rgb(74, 74, 74);
+}
+
+/* Nutrition Information */
 .table-col {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 2rem;
 }
-
-/*bulma control mixin - this is the Bulma Code that can be applied to any button on webpage* 
-happy for this to be edited!*/
-
-/* .bulma-control-mixin {
-	@include control;
-	background: #a87fc5;
-	color: white;
-} */
 
 /* CSS KEYFRAME ANIMATION FOR LOADING SPINNER */
 #spinner {
@@ -20,7 +33,6 @@ happy for this to be edited!*/
 	align-items: center;
 	height: 50vh;
 }
-
 .spinner {
 	width: 100px;
 	height: 100px;
@@ -59,41 +71,6 @@ footer {
 	background-color: #00d1b2;
 }
 
-#q1 {
-	padding: 1.25rem 0 0;
-}
-
-.flex-center {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
-}
-.flex-end {
-	display: flex;
-	align-items: flex-end;
-}
-.flex-end ol {
-	margin: 0;
-}
-.flex-end ol li {
-	list-style-type: none;
-	text-align: center;
-}
-.main-section {
-	margin: 3rem 0 0;
-}
-
-.flex-around {
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
-}
-.notification {
-	background-color: #fff;
-	color: rgb(74, 74, 74);
-}
 /* @media */
 @media only screen and (max-width: 1023px) {
 	.table-col {

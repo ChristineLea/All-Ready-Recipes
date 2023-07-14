@@ -3,7 +3,7 @@ const API_KEY = "J4fyAOnwuXGtNt+PjYXPZg==g2QzfMyhXiwtkSjP";
 const SUBMIT_NUTRITION_BTN = $("#submitNutrition");
 let strQuery = "";
 
-// // on page load, hide the loading spinner / hide the nutrition info
+// 2. on page load, hide the loading spinner / hide the nutrition info
 function init() {
 	$("#spinner").hide();
 	$("#toggle-display").hide();
@@ -19,8 +19,9 @@ function alertUser() {
 	$form.append($alert);
 }
 
-// GET request
+// 3. GET request from Calorie Ninjas API
 function ajaxGetApi() {
+
 	let $spinner = $("#spinner");
 
 	$.ajax({
@@ -47,14 +48,13 @@ function ajaxGetApi() {
 			}, 2000);
 		},
 		// if error - log to console
-
 		error: function ajaxError(jqXHR) {
 			console.error("Error: ", jqXHR.responseText);
 		},
 	});
 }
 
-// sort/format returned data to an object for each ingredient/food item requested by user input
+// 4. sort/format returned data to an object for each ingredient/food item requested by user input
 function sortObjData(objData) {
 	for (const item of objData) {
 		console.log(item);
@@ -78,12 +78,12 @@ function sortObjData(objData) {
 	}
 }
 
-// make first letter uppercase
+// 5. Dynamically display the nutrition information in an HTML table
 function displayData(obj) {
 	let $tBody = $("<tbody>");
 	let $table = $("<table>");
 	let $tableCol = $(".table-col");
-	// CHANGE to append table
+
 	$tBody.append(
 		`
 		<tr><th>
@@ -116,10 +116,11 @@ function displayData(obj) {
 	$table.append($tBody);
 	$tableCol.append($table);
 
+	// Display the fine print under the table
 	$("#toggle-display").show();
 }
 
-// Event to generate results
+// 2. On click Event to get user input
 SUBMIT_NUTRITION_BTN.on("click", function (e) {
 	e.preventDefault();
 
@@ -137,8 +138,9 @@ SUBMIT_NUTRITION_BTN.on("click", function (e) {
 		.val();
 
 	ajaxGetApi();
+	// Clear input field value
 	$("#nutrition").val("");
 });
 
+// 1. On page load, run init() function
 init();
-
